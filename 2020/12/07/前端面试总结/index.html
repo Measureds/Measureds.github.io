@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.1k 字
+      2.3k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      24
+      27
        分钟
     </span>
   
@@ -384,6 +384,24 @@
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.clearfix</span><span class="hljs-selector-pseudo">:before</span>,<br><span class="hljs-selector-class">.clearfix</span><span class="hljs-selector-pseudo">:after</span> &#123;<br>    <span class="hljs-attribute">display</span>: table;<br>    <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;&quot;</span>;    <span class="hljs-comment">/*不用有内容也可以*/</span><br>&#125;<br><br><span class="hljs-selector-class">.clearfix</span><span class="hljs-selector-pseudo">:after</span> &#123;<br>    <span class="hljs-attribute">clear</span>: both;<br>&#125;<br><br><span class="hljs-selector-class">.clearfix</span> &#123;<br>    <span class="hljs-attribute">*zoom</span>: <span class="hljs-number">1</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>BFC: <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/25321647">https://zhuanlan.zhihu.com/p/25321647</a></p>
+<h5 id="13、控制元素显示和隐藏的两种方法"><a href="#13、控制元素显示和隐藏的两种方法" class="headerlink" title="13、控制元素显示和隐藏的两种方法"></a>13、控制元素显示和隐藏的两种方法</h5><ul>
+<li>方法一</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;EleId&quot;</span>).style.visibility=<span class="hljs-string">&quot;hidden&quot;</span>;<br><span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;EleId&quot;</span>).style.visibility=<span class="hljs-string">&quot;visible&quot;</span>;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>方法二</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;EleId&quot;</span>).style.display=<span class="hljs-string">&quot;none&quot;</span>;<br><span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;EleId&quot;</span>).style.display=<span class="hljs-string">&quot;inline&quot;</span>;<br></code></pre></td></tr></table></figure>
+
+<h5 id="14、防抖和节流"><a href="#14、防抖和节流" class="headerlink" title="14、防抖和节流"></a>14、防抖和节流</h5><p>防抖和节流都是为了解决短时间内大量触发某函数而导致的性能问题。</p>
+<p>手写防抖实例代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">debounce</span>(<span class="hljs-params">func, wait</span>) </span>&#123;<br>    <span class="hljs-keyword">let</span> timeout = <span class="hljs-literal">null</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;<br>        <span class="hljs-keyword">let</span> context = <span class="hljs-built_in">this</span><br>        <span class="hljs-keyword">let</span> args = <span class="hljs-built_in">arguments</span><br>        <span class="hljs-keyword">if</span> (timeout) <span class="hljs-built_in">clearTimeout</span>(timeout)<br>        timeout = <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>            func.apply(context, args) <br>        &#125;, wait)<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>节流实例代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">throttle</span>(<span class="hljs-params">fn, wait</span>) </span>&#123;<br>    <span class="hljs-keyword">let</span> prev = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();<br>    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123; <br>        <span class="hljs-keyword">const</span> args = <span class="hljs-built_in">arguments</span>;<br>        <span class="hljs-keyword">const</span> now = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();<br>        <span class="hljs-keyword">if</span> (now - prev &gt; wait) &#123;<br>            fn.apply(<span class="hljs-built_in">this</span>, args);<br>            prev = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();<br>        &#125;<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<h5 id="15、promise、事件循环机制、输出什么，以及原理是什么，event-、loop解析"><a href="#15、promise、事件循环机制、输出什么，以及原理是什么，event-、loop解析" class="headerlink" title="15、promise、事件循环机制、输出什么，以及原理是什么，event 、loop解析"></a>15、promise、事件循环机制、输出什么，以及原理是什么，event 、loop解析</h5><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/vampire10086/article/details/107403506">https://blog.csdn.net/vampire10086/article/details/107403506</a></p>
 
             </div>
             <hr>
