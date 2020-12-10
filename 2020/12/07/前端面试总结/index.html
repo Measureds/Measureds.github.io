@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.3k 字
+      2.8k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      27
+      32
        分钟
     </span>
   
@@ -401,7 +401,26 @@
 <p>节流实例代码：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">throttle</span>(<span class="hljs-params">fn, wait</span>) </span>&#123;<br>    <span class="hljs-keyword">let</span> prev = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();<br>    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123; <br>        <span class="hljs-keyword">const</span> args = <span class="hljs-built_in">arguments</span>;<br>        <span class="hljs-keyword">const</span> now = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();<br>        <span class="hljs-keyword">if</span> (now - prev &gt; wait) &#123;<br>            fn.apply(<span class="hljs-built_in">this</span>, args);<br>            prev = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();<br>        &#125;<br>    &#125;<br></code></pre></td></tr></table></figure>
 
-<h5 id="15、promise、事件循环机制、输出什么，以及原理是什么，event-、loop解析"><a href="#15、promise、事件循环机制、输出什么，以及原理是什么，event-、loop解析" class="headerlink" title="15、promise、事件循环机制、输出什么，以及原理是什么，event 、loop解析"></a>15、promise、事件循环机制、输出什么，以及原理是什么，event 、loop解析</h5><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/vampire10086/article/details/107403506">https://blog.csdn.net/vampire10086/article/details/107403506</a></p>
+<h5 id="15、promise、事件循环机制、输出什么，以及原理是什么，event-loop解析"><a href="#15、promise、事件循环机制、输出什么，以及原理是什么，event-loop解析" class="headerlink" title="15、promise、事件循环机制、输出什么，以及原理是什么，event  loop解析"></a>15、promise、事件循环机制、输出什么，以及原理是什么，event  loop解析</h5><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/vampire10086/article/details/107403506">https://blog.csdn.net/vampire10086/article/details/107403506</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/tangjianqiang/p/13470363.html">https://www.cnblogs.com/tangjianqiang/p/13470363.html</a></p>
+<h5 id="16、ES6的新特性，手写Promise、Promise-all、Promise-race"><a href="#16、ES6的新特性，手写Promise、Promise-all、Promise-race" class="headerlink" title="16、ES6的新特性，手写Promise、Promise.all、Promise.race"></a>16、ES6的新特性，手写Promise、Promise.all、Promise.race</h5><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44141866/article/details/106028210">https://blog.csdn.net/weixin_44141866/article/details/106028210</a></p>
+<h5 id="17、post和get的区别"><a href="#17、post和get的区别" class="headerlink" title="17、post和get的区别"></a>17、post和get的区别</h5><ul>
+<li>GET在浏览器回退时是无害的，而POST会再次提交请求。</li>
+<li>GET产生的URL地址可以被Bookmark，而POST不可以。 </li>
+<li>GET请求会被浏览器主动cache，而POST不会，除非手动设置。</li>
+<li>GET请求只能进行url编码，而POST支持多种编码方式。</li>
+<li>GET请求参数会被完整保留在浏览器历史记录里，而POST中的参数不会被保留。</li>
+<li>GET请求在URL中传送的参数是有长度限制的，而POST么有。</li>
+<li>对参数的数据类型，GET只接受ASCII字符，而POST没有限制。</li>
+<li>GET比POST更不安全，因为参数直接暴露在URL上，所以不能用来传递敏感信息。</li>
+</ul>
+<p>参考链接：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/logsharing/p/8448446.html">https://www.cnblogs.com/logsharing/p/8448446.html</a></p>
+<h5 id="18、call-、apply-、bind-方法的区别"><a href="#18、call-、apply-、bind-方法的区别" class="headerlink" title="18、call()、apply()、bind()方法的区别"></a>18、call()、apply()、bind()方法的区别</h5><p>call和apply都是为了改变某个函数运行时的上下文，改变函数体内部this指针</p>
+<p>call把参数按顺序传递进去，apply是把参数放在数组里。</p>
+<p>bind 是返回对应函数,便于稍后调用;apply 、call 则是立即调用 。</p>
+<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000018270750">https://segmentfault.com/a/1190000018270750</a></p>
+<h5 id="19、什么是事件委托？"><a href="#19、什么是事件委托？" class="headerlink" title="19、什么是事件委托？"></a>19、什么是事件委托？</h5><p>事件代理（Event Delegation），又称之为事件委托。是 JavaScript 中常用绑定事件的常用技巧。顾名思义，“事件代理”即是把原本需要绑定的事件委托给父元素，让父元素担当事件监听的职务。</p>
+<p>为什么要这么做？众所周知，DOM操作是十分消耗性能的，所以重复的事件绑定简直是性能杀手。而事件代理的核心思想，就是通过尽量少的绑定，去监听尽量多的事件。</p>
 
             </div>
             <hr>
