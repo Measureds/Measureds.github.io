@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      855 字
+      861 字
     </span>
   
 
@@ -227,7 +227,10 @@
             <h1 style="display: none">Interview Summary</h1>
             
             <div class="markdown-body">
-              <h5 id="1、如何看待前端框架选型"><a href="#1、如何看待前端框架选型" class="headerlink" title="1、如何看待前端框架选型"></a>1、如何看待前端框架选型</h5><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42774426/article/details/86600913">https://blog.csdn.net/qq_42774426/article/details/86600913</a></p>
+              <p>前端面试总结</p>
+<a id="more"></a>
+
+<h5 id="1、如何看待前端框架选型"><a href="#1、如何看待前端框架选型" class="headerlink" title="1、如何看待前端框架选型"></a>1、如何看待前端框架选型</h5><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42774426/article/details/86600913">https://blog.csdn.net/qq_42774426/article/details/86600913</a></p>
 <h5 id="2、vue如何实现双向绑定"><a href="#2、vue如何实现双向绑定" class="headerlink" title="2、vue如何实现双向绑定"></a>2、vue如何实现双向绑定</h5><p>vue.js 是采用数据劫持结合发布者-订阅者模式的方式，通过new Proxy()来劫持各个属性的setter，getter，在数据变动时发布消息给订阅者，触发相应的监听回调。</p>
 <p>Vue 3.0与Vue 2.0的区别仅是数据劫持的方式由Object.defineProperty更改为Proxy代理，其他代码不变。</p>
 <h5 id="3、react虚拟DOM是什么"><a href="#3、react虚拟DOM是什么" class="headerlink" title="3、react虚拟DOM是什么"></a>3、react虚拟DOM是什么</h5><p>当我们更新了<code>state</code>中的值的时候，React会去调用<code>render()</code>方法来重新渲染整个组件的UI，但是如果我们真的去操作这么大量的DOM，显然性能是堪忧的。所以React实现了一个<code>Virtual DOM</code>，组件的<code>真实DOM结构</code>和<code>Virtual DOM</code>之间有一个映射的关系，React在虚拟DOM上实现了一个<code>diff</code>算法，当<code>render()</code>去重新渲染组件的时候，<code>diff</code>会找到需要变更的DOM，然后再把修改更新到浏览器上面的真实DOM上，所以，React并不是渲染了整个DOM树，<code>Virtual DOM</code>就是JS数据结构，所以比原生的DOM快得多。</p>
