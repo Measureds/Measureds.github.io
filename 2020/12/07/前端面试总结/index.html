@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      49
+      50
        分钟
     </span>
   
@@ -690,6 +690,9 @@
 <td align="left">服务器不支持请求的HTTP协议的版本，无法完成处理</td>
 </tr>
 </tbody></table>
+<h5 id="23、Promise的原理"><a href="#23、Promise的原理" class="headerlink" title="23、Promise的原理"></a>23、Promise的原理</h5><p><code>Promise</code>的规范很多,ES6采用的<code>Promise/A+</code>规范</p>
+<p>Promise的状态包括：pedding、fulfilled、rejected三种状态，并且只能由pedding转变为fulfillde或者rejected,而且仅能改变一次。</p>
+<p>当执行完resolve()的时候，状态会随之改变为reject。</p>
 
             </div>
             <hr>
