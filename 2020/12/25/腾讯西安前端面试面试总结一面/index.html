@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.1k 字
+      3.3k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      32
+      35
        分钟
     </span>
   
@@ -291,10 +291,30 @@
 </li>
 </ul>
 <h5 id="6、前端安全的问题有哪些，具体防范措施"><a href="#6、前端安全的问题有哪些，具体防范措施" class="headerlink" title="6、前端安全的问题有哪些，具体防范措施"></a>6、前端安全的问题有哪些，具体防范措施</h5><ul>
-<li>跨站脚本攻击（XSS攻击）：跨站脚本攻击，指的是恶意攻击者往Web页面里插入恶意html代码，当用户浏览该页之时，嵌入其中Web里面的html代码会被执行，从而达到用户的特殊目的。</li>
-<li>SQL语句注入</li>
-<li>跨站请求伪造（CSRF攻击）</li>
-<li>文件上传</li>
+<li><p>跨站脚本攻击（XSS攻击）：跨站脚本攻击，指的是恶意攻击者往Web页面里插入恶意html代码，当用户浏览该页之时，嵌入其中Web里面的html代码会被执行，从而达到用户的特殊目的。</p>
+<p><code>预防措施</code>:输入过滤，对用户提交的数据进行有效性验证。</p>
+<ul>
+<li><p>过滤一些些常见的敏感字符，例如：&lt; &gt; ‘ “ &amp; # \ javascript expression ；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">.replace(<span class="hljs-regexp">/src=&quot;javascript:/g</span>, <span class="hljs-string">&#x27;src=&quot;&#x27;</span>).replace(<span class="hljs-regexp">/src=&#x27;javascript:/g</span>, <span class="hljs-string">&#x27;src=\&#x27;&#x27;</span>)<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>过滤或移除特殊的Html标签， 例如: <code>&lt;script&gt;</code>, <code>&lt;iframe&gt;</code> </p>
+</li>
+<li><p>过滤JavaScript 事件的标签，例如 “onclick=”, “onfocus”</p>
+</li>
+<li><p>通过http-only Cooke禁止读取某些敏感Cookies</p>
+</li>
+<li><p>在关键业务部分增加验证码，防止脚本冒充用户提交危险操作</p>
+</li>
+</ul>
+<p>输出编码：当需要将一个字符串输出到Web网页时，同时又不确定这个字符串中是否包括XSS特殊字符（如&lt; &gt; &amp;‘”等），为了确保输出内容的完整性和正确性，可以使用编码（HTMLEncode）进行处理。</p>
+</li>
+<li><p>SQL语句注入</p>
+</li>
+<li><p>跨站请求伪造（CSRF攻击）</p>
+</li>
+<li><p>文件上传</p>
+<p>xss参考链接：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/for-easy-fast/articles/12956062.html">https://www.cnblogs.com/for-easy-fast/articles/12956062.html</a></p>
+</li>
 </ul>
 <h5 id="7、XSS具体是如何发动攻击的"><a href="#7、XSS具体是如何发动攻击的" class="headerlink" title="7、XSS具体是如何发动攻击的"></a>7、XSS具体是如何发动攻击的</h5><ul>
 <li><p>分类：XSS分为反射型、存储型、及DOM-based型，其中反射型和DOM-based型可以归为非持久XSS攻击类型。存储型可以归类为持久性XSS攻击</p>
