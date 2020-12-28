@@ -1,0 +1,640 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon01.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Measureds">
+  <meta name="keywords" content="">
+  <title>笔试学习贴 - 云深不知处</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>云深不知处</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="笔试学习贴">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-12-28 10:01" pubdate>
+        2020年12月28日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.8k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      45
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">笔试学习贴</h1>
+            
+            <div class="markdown-body">
+              <p>最近拿到了博思软件校园招聘和拼多多的笔试机会，现在就准备一下</p>
+<h5 id="1、哪个样式定义后，内敛（非块状）元素可以定义宽度和高度"><a href="#1、哪个样式定义后，内敛（非块状）元素可以定义宽度和高度" class="headerlink" title="1、哪个样式定义后，内敛（非块状）元素可以定义宽度和高度"></a>1、哪个样式定义后，内敛（非块状）元素可以定义宽度和高度</h5><p>答案：display:block</p>
+<blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">display</span>属性 :<br><span class="hljs-selector-tag">block</span> :　<span class="hljs-selector-tag">CSS1</span> 块对象的默认值。将对象强制作为块对象呈递，为对象之后添加新行  可以定义高度和宽度<br><span class="hljs-selector-tag">none</span> :　<span class="hljs-selector-tag">CSS1</span> 隐藏对象。与 <span class="hljs-selector-tag">visibility</span> 属性的<span class="hljs-selector-tag">hidden</span>值不同，其不为被隐藏的对象保留其物理空间<br><span class="hljs-selector-tag">inline</span> :　<span class="hljs-selector-tag">CSS1</span> 内联对象的默认值。将对象强制作为内联对象呈递，从对象中删除行<br><span class="hljs-selector-tag">inline-block</span> :　<span class="hljs-selector-tag">IE5</span>.5 将对象呈递为内联对象，但是对象的内容作为块对象呈递。旁边的内联对象会被呈递在同一行内 <span class="hljs-selector-tag">inherit</span>: 看<span class="hljs-selector-tag">display</span>默认是不具备继承性的，使用<span class="hljs-selector-tag">inherit</span>可以让其继承父对象的<span class="hljs-selector-tag">display</span>属性。<br></code></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="2、新窗口打开网页，用到以下哪个值"><a href="#2、新窗口打开网页，用到以下哪个值" class="headerlink" title="2、新窗口打开网页，用到以下哪个值"></a>2、新窗口打开网页，用到以下哪个值</h5><p>答案：_blank</p>
+<p>在html中通过<code>&lt;a&gt;</code>标签打开一个链接，通过 <code>&lt;a&gt; </code>标签的 target 属性规定在何处打开链接文档。</p>
+<p>如果在标签<code>&lt;a&gt;</code>中写入target属性，则浏览器会根据target的属性值去打开与其命名或名称相符的 框架<code>&lt;frame&gt;</code>或者窗口.</p>
+<p>在target中还存在四个保留的属性值如下，</p>
+<ul>
+<li>属性值</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">值</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">_blank</td>
+<td align="left">在新窗口中打开被链接文档。</td>
+</tr>
+<tr>
+<td align="left">_self</td>
+<td align="left">默认。在相同的框架中打开被链接文档。</td>
+</tr>
+<tr>
+<td align="left">_parent</td>
+<td align="left">在父框架集中打开被链接文档。</td>
+</tr>
+<tr>
+<td align="left">_top</td>
+<td align="left">在整个窗口中打开被链接文档。</td>
+</tr>
+<tr>
+<td align="left"><em>framename</em></td>
+<td align="left">在指定的框架中打开被链接文档。</td>
+</tr>
+</tbody></table>
+<p>这些 target 的所有 4 个值都以下划线开始。任何其他用一个下划线作为开头的窗口或者目标都会被浏览器忽略，因此，不要将下划线作为文档中定义的任何框架 name 或 id 的第一个字符。</p>
+<h5 id="3、元素的alt和title有什么异同，选出正确的说法"><a href="#3、元素的alt和title有什么异同，选出正确的说法" class="headerlink" title="3、元素的alt和title有什么异同，选出正确的说法"></a>3、元素的alt和title有什么异同，选出正确的说法</h5><p>alt是html标签的属性，而title既是html标签，又是html属性。<br>title标签这个不用多说，网页的标题就是写在<code>&lt;title&gt;&lt;/title&gt;</code>这对标签之内的。<br>title作为属性时，用来为元素提供额外说明信息。例如，给超链接标签a添加了title属性，把鼠标移动到该链接上面是，就会显示title的内容，以达到补充说明或者提示的效果。<br>而alt属性则是用来指定替换文字，只能用在img、area和input元素中（包括applet元素），用于网页中图片无法正常显示时给用户提供文字说明使其了解图像信息。</p>
+<h5 id="4、下述有关css属性position的属性值的描述，说法错误的是？"><a href="#4、下述有关css属性position的属性值的描述，说法错误的是？" class="headerlink" title="4、下述有关css属性position的属性值的描述，说法错误的是？"></a>4、下述有关css属性position的属性值的描述，说法错误的是？</h5><p>CSS中Position属性有四个可选值，它们分别是：static、absolute、fixed、relative。</p>
+<p>◆position:static　无定位</p>
+<p>该属性值是所有元素定位的默认情况，在一般情况下，我们不需要特别的去声明它，但有时候遇到继承的情况，我们不愿意见到元素所继承的属性影响本身，从而可以用position:static取消继承，即还原元素定位的默认值。</p>
+<p>◆position:absolute　绝对定位</p>
+<p>使用position:absolute，能够很准确的将元素移动到你想要的位置，</p>
+<p>◆position:fixed　相对于窗口的固定定位</p>
+<p>这个定位属性值是什么意思呢？元素的定位方式同absolute类似，但它的包含块是视区本身。在屏幕媒体如WEB浏览器中，元素在文档滚动时不会在浏览器视察中移动。例如，它允许框架样式布局。在页式媒体如打印输出中，一个固定元素会出现于第一页的相同位置。这一点可用于生成流动标题或脚注。我们也见过相似的效果，但大都数效果不是通过CSS来实现了，而是应用了JS脚本。</p>
+<p>请特别注意，IE6不支持CSS中的position:fixed属性。真的非常遗憾，要不然我们就可以试试这种酷酷的效果了。</p>
+<p>◆position:relative　相对定位</p>
+<p>所谓相对定位到底是什么意思呢，是基于哪里的相对呢？我们需要明确一个概念，相对定位是相对于元素默认的位置的定位。既然是相对的，我们就需要设置不同的值来声明定位在哪里，top、bottom、left、right四个数值配合，来明确元素的位置。</p>
+<h5 id="5、下面有关javascript常见事件的触发情况"><a href="#5、下面有关javascript常见事件的触发情况" class="headerlink" title="5、下面有关javascript常见事件的触发情况"></a>5、下面有关javascript常见事件的触发情况</h5><p>常见事件：</p>
+<ol>
+<li>点击事件：<ol>
+<li>onclick：单击事件</li>
+<li>ondblclick: 双击事件</li>
+</ol>
+</li>
+<li>焦点事件：<ol>
+<li>onblur:失去焦点</li>
+<li>onfocus:元素获得焦点</li>
+</ol>
+</li>
+<li>加载事件<ol>
+<li>onload：一张页面或一幅图像完成加载</li>
+</ol>
+</li>
+<li>鼠标事件：<ol>
+<li>onmousedown: 鼠标按钮被松下</li>
+<li>onmouseup:鼠标按键被松开</li>
+<li>onmousemove:鼠标被移动</li>
+<li>onmouseover:鼠标移到某元素之上</li>
+<li>onmouseout:鼠标从某元素上移开</li>
+</ol>
+</li>
+<li>键盘事件：<ol>
+<li>onkeydown:某个键盘按键被按下</li>
+<li>onkeyup:某个键盘按键被松开。</li>
+<li>onkeypress:某个键盘按键被按下并松开</li>
+</ol>
+</li>
+<li>选择和改变：<ol>
+<li>onchange:域的内容被改变</li>
+<li>onselect:文本被选中</li>
+</ol>
+</li>
+<li>表单事件：<ol>
+<li>onsubmit 确认按钮被点击</li>
+<li>onreset:重置按钮被点击</li>
+</ol>
+</li>
+</ol>
+<h5 id="6、下述有关border-none以及border-0的区别？"><a href="#6、下述有关border-none以及border-0的区别？" class="headerlink" title="6、下述有关border:none以及border:0的区别？"></a>6、下述有关border:none以及border:0的区别？</h5><p>1.效果</p>
+<p>border-style:none;//无边框     </p>
+<p>border-width:0;//边框宽度为0px  </p>
+<p>2.区别</p>
+<p>（1）性能差异</p>
+<p>border:0;浏览器对border-width、border-color进行渲染，占用内存。</p>
+<p>border:none;浏览器不进行渲染，不占用内存。</p>
+<p>Chrome：</p>
+<p>border:none;&gt;&gt; border:initial none initial;</p>
+<p>border:0;&gt;&gt; border:0 initial initial ;</p>
+<p>Firefox、360：</p>
+<p>border:none; &gt;&gt;border:medium none;</p>
+<p>border:0;&gt;&gt; border:0 none;</p>
+<p>计算出的样式：</p>
+<p><strong>border:0px none 元素color属性值;</strong></p>
+<p>（2）浏览器兼容</p>
+<p>IE7-不支持border:none;</p>
+<p>W3C提示：请始终把border-style属性声明到border-color属性之前，元素必须在改变颜色之前获得边框。</p>
+<h5 id="7、下面有关Css-sprites说法？"><a href="#7、下面有关Css-sprites说法？" class="headerlink" title="7、下面有关Css sprites说法？"></a>7、下面有关Css sprites说法？</h5><p>CSS Sprites</p>
+<p>1.简介</p>
+<p>CSS Sprites在国内很多人叫css精灵，是一种网页图片应用处理方式。它允许将一个页面涉及到的所有零星图片都包含到一张大图中， 利用CSS的“background-image”，“background- repeat”，“background-position”的组合进行背景定位， 访问页面时避免图片载入缓慢的现象。</p>
+<p>2.优点</p>
+<p>（1）CSS Sprites能很好地减少网页的http请求，从而大大的提高页面的性能，这是CSS Sprites最大的优点，也是其被广泛传播和应用的主要原因；</p>
+<p>（2）CSS Sprites能减少图片的字节；</p>
+<p>（3）CSS Sprites解决了网页设计师在图片命名上的困扰，只需对一张集合的图片命名，不需要对每一个小图片进行命名，从而提高了网页制作效率。</p>
+<p>（4）CSS Sprites只需要修改一张或少张图片的颜色或样式来改变整个网页的风格。</p>
+<p>3.缺点</p>
+<p>（1）图片合并麻烦：图片合并时，需要把多张图片有序的合理的合并成一张图片，并留好足够的空间防止版块出现不必要的背景。</p>
+<p>（2）图片适应性差：在高分辨的屏幕下自适应页面，若图片不够宽会出现背景断裂。</p>
+<p>（3）图片定位繁琐：开发时需要通过工具测量计算每个背景单元的精确位置。</p>
+<p>（4）可维护性差：页面背景需要少许改动，可能要修改部分或整张已合并的图片，进而要改动css。在避免改动图片的前提下，又只能（最好）往下追加图片，但这样增加了图片字节。</p>
+<h5 id="8、无webkit内核的是"><a href="#8、无webkit内核的是" class="headerlink" title="8、无webkit内核的是"></a>8、无webkit内核的是</h5><p>Wekbit是一个开源的Web浏览器引擎，也就是浏览器的内核。Apple的Safari, Google的Chrome, Nokia S60平台的默认浏览器，Apple手机的默认浏览器，Android手机的默认浏览器均采用的Webkit作为器浏览器内核。Webkit的采用程度由 此可见一斑，理所当然的成为了当今主流的三大浏览器内核之一。另外两个分别是Gecko和Trident，大名鼎鼎的Firefox便是使用的Gecko 内核，而微软的IE系列则使用的是Trident内核。</p>
+<p>另外，搜狗浏览器是双核的，双核并不是指一个页面由2个内核同时处理,而是所有网页（通常是标准通用标记语言的应用超文本标记语言）由webkit内核处理,只有银行网站用IE内核</p>
+<h5 id="9、为所有-lt-h1-gt-添加背景颜色"><a href="#9、为所有-lt-h1-gt-添加背景颜色" class="headerlink" title="9、为所有&lt;h1&gt;添加背景颜色"></a>9、为所有<code>&lt;h1&gt;</code>添加背景颜色</h5><p>h1{background-color:#111111;}</p>
+<h5 id="10、Css哪个属性不属于尺寸属性"><a href="#10、Css哪个属性不属于尺寸属性" class="headerlink" title="10、Css哪个属性不属于尺寸属性"></a>10、Css哪个属性不属于尺寸属性</h5><p>height、line-height、min-width    top不是，top是距离，而非尺寸</p>
+<h5 id="11、正则里的-描述正确的是"><a href="#11、正则里的-描述正确的是" class="headerlink" title="11、正则里的$描述正确的是"></a>11、正则里的$描述正确的是</h5><p>^是正则表达式匹配字符串开始位置</p>
+<p>$是正则表达式匹配字符串结束位置</p>
+<h5 id="12、关于ES6解构表达式"><a href="#12、关于ES6解构表达式" class="headerlink" title="12、关于ES6解构表达式"></a>12、关于ES6解构表达式</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> [a,b, c,d, e] = <span class="hljs-string">``</span><span class="hljs-string">&quot;hello&quot;</span><span class="hljs-string">``</span>; <br></code></pre></td></tr></table></figure>
+
+<p>描述正确的是（）</p>
+<p>解析：一峰老师的ECMAScript 6入门：<a target="_blank" rel="noopener" href="https://es6.ruanyifeng.com/#docs/destructuring">https://es6.ruanyifeng.com/#docs/destructuring</a></p>
+<p>字符串的解构赋值</p>
+<p>字符串也可以解构赋值，因为此时字符串被转换成一个类似数组的对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> [a,b, c,d, e] = <span class="hljs-string">&quot;hello&quot;</span>;<br><span class="hljs-built_in">console</span>.log(a);  <span class="hljs-comment">//h</span><br><span class="hljs-built_in">console</span>.log(b);  <span class="hljs-comment">//e</span><br><span class="hljs-built_in">console</span>.log(c);  <span class="hljs-comment">//l</span><br><span class="hljs-built_in">console</span>.log(d);  <span class="hljs-comment">//l</span><br><span class="hljs-built_in">console</span>.log(e);  <span class="hljs-comment">//o</span><br></code></pre></td></tr></table></figure>
+
+<p>类似数组的对象都有一个 length 属性，因此还可以对这个属性解构赋值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> &#123;<span class="hljs-attr">length</span> : len&#125; = <span class="hljs-string">&#x27;hello&#x27;</span>;<br><span class="hljs-built_in">console</span>.log(len);  <span class="hljs-comment">//5</span><br></code></pre></td></tr></table></figure>
+
+<h5 id="13、关于ES6-箭头函数-gt-，描述（）"><a href="#13、关于ES6-箭头函数-gt-，描述（）" class="headerlink" title="13、关于ES6 箭头函数 ()=&gt;{} ，描述（）"></a>13、关于ES6 箭头函数 ()=&gt;{} ，描述（）</h5><ul>
+<li>当箭头函数没有参数或有大于等于两个的参数时，必须使用括号，如：let a = ()=&gt;{} 或 let a = (b, c) =&gt; {};</li>
+<li>箭头函数没有arguments 绑定</li>
+<li>箭头函数的this是函数定义的对象，而不是使用函数的对象</li>
+<li>var f = v =&gt; v</li>
+</ul>
+<h5 id="14、Http请求返回码（status-code）中，代表-未授权的请求-的代码是"><a href="#14、Http请求返回码（status-code）中，代表-未授权的请求-的代码是" class="headerlink" title="14、Http请求返回码（status code）中，代表[未授权的请求]的代码是"></a>14、Http请求返回码（status code）中，代表[未授权的请求]的代码是</h5><p>401</p>
+<h5 id="15、当HTMl页面加载完毕时触发的事件是"><a href="#15、当HTMl页面加载完毕时触发的事件是" class="headerlink" title="15、当HTMl页面加载完毕时触发的事件是"></a>15、当HTMl页面加载完毕时触发的事件是</h5><p>onload</p>
+<h5 id="16、CSS3中，能使用div的宽度变化有2秒的过渡效果的属性是提示："><a href="#16、CSS3中，能使用div的宽度变化有2秒的过渡效果的属性是提示：" class="headerlink" title="16、CSS3中，能使用div的宽度变化有2秒的过渡效果的属性是提示："></a>16、CSS3中，能使用div的宽度变化有2秒的过渡效果的属性是提示：</h5><p>div {<br>      transition: width 2s;<br>}</p>
+<h5 id="17、请使用Promise封装Ajax操作"><a href="#17、请使用Promise封装Ajax操作" class="headerlink" title="17、请使用Promise封装Ajax操作"></a>17、请使用Promise封装Ajax操作</h5><p>原始的Ajax操作如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> onSuccess = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">result</span>)</span>&#123;&#125;; <span class="hljs-comment">//成功的回调</span><br><span class="hljs-keyword">var</span> onFail = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error</span>)</span>&#123;&#125;; <span class="hljs-comment">//失败的回调</span><br><span class="hljs-keyword">var</span> req = <span class="hljs-keyword">new</span> XMLHttpRequest();<br>req.open(<span class="hljs-string">&quot;POST&quot;</span>, <span class="hljs-string">&quot;www.baidu.com&quot;</span>, <span class="hljs-literal">true</span>);<br>req.onload = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<br>  <span class="hljs-keyword">if</span>(req.readyState === <span class="hljs-number">4</span> &amp;&amp; req.status === <span class="hljs-number">200</span>)&#123;<br>    onSuccess(req.response);<br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    onFail(req.statusText);<br>  &#125;<br>&#125;<br>req.onerror = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<br>  onFail(<span class="hljs-built_in">Error</span>(<span class="hljs-string">&quot;网络异常&quot;</span>));<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>答案：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">resolve, reject</span>)</span>&#123;<br>   <span class="hljs-keyword">var</span> req = <span class="hljs-keyword">new</span> XMLHttpRequest();<br>   req.open(<span class="hljs-string">&quot;POST&quot;</span>,<span class="hljs-string">&quot;www.baidu.com&quot;</span>, <span class="hljs-literal">true</span>);<br>   req.onload = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<br>     <span class="hljs-keyword">if</span>(req.readyState === <span class="hljs-number">4</span> &amp;&amp; req.status === <span class="hljs-number">200</span>)&#123;<br>       resolve(req.response);<br>     &#125; <span class="hljs-keyword">else</span> &#123;<br>       reject(req.statusText);<br>     &#125;<br>   &#125;<br>   req.onerror = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<br>     reject(<span class="hljs-built_in">Error</span>(<span class="hljs-string">&quot;网络异常&quot;</span>));<br>   &#125;<br> &#125;);<br></code></pre></td></tr></table></figure>
+
+<p>尝试把它跑起来：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;myFunction()&quot;</span>&gt;</span>发送<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><br><span class="javascript">    <span class="hljs-keyword">const</span> request = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">method, url, isajax</span>) </span>&#123;</span><br><span class="javascript">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="javascript">            <span class="hljs-keyword">let</span> req = <span class="hljs-keyword">new</span> XMLHttpRequest();</span><br>            req.open(method, url, isajax);<br><span class="javascript">            req.onload = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="javascript">                <span class="hljs-keyword">if</span> (req.readState === <span class="hljs-number">4</span> &amp;&amp; req.status === <span class="hljs-number">200</span>) &#123;</span><br>                    resolve(req.response)<br><span class="javascript">                &#125; <span class="hljs-keyword">else</span> &#123;</span><br>                    reject(req.statusText);<br>                &#125;<br>               <br><span class="javascript">                req.onerror = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="javascript">                    reject(<span class="hljs-built_in">Error</span>(<span class="hljs-string">&quot;网络异常&quot;</span>))</span><br>                &#125;<br>            &#125;<br>            req.send();<br>        &#125;)<br>    &#125;<br><br><span class="javascript">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myFunction</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="javascript">        <span class="hljs-keyword">let</span> req = request(<span class="hljs-string">&quot;post&quot;</span>, <span class="hljs-string">&quot;www.baidu.com&quot;</span>, <span class="hljs-literal">true</span>)</span><br><span class="javascript">        req.then(<span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> &#123;</span><br><span class="javascript">            <span class="hljs-built_in">console</span>.log(e)</span><br><span class="javascript">        &#125;, <span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> &#123;</span><br><span class="javascript">            <span class="hljs-built_in">console</span>.log(e)</span><br>        &#125;)<br>    &#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h5 id="18、对于HTTPS建立连接的过程，下面描述正确的是"><a href="#18、对于HTTPS建立连接的过程，下面描述正确的是" class="headerlink" title="18、对于HTTPS建立连接的过程，下面描述正确的是"></a>18、对于HTTPS建立连接的过程，下面描述正确的是</h5><p>DNS TCP TLS HTTP</p>
+<h5 id="19、对于javascript执行引擎描述"><a href="#19、对于javascript执行引擎描述" class="headerlink" title="19、对于javascript执行引擎描述"></a>19、对于javascript执行引擎描述</h5><p>Node.js的Buffer类型对象在创建时内存不会分配到V8堆上</p>
+<h5 id="20、关于解构的说法"><a href="#20、关于解构的说法" class="headerlink" title="20、关于解构的说法"></a>20、关于解构的说法</h5><ul>
+<li>不完全结构，也会成功，不会报错。</li>
+<li>只要支持Iterator接口，都可以被结构赋值。</li>
+<li>null可以替代默认值，而成功的结构赋值。</li>
+<li>结构中不定参数可以出现在除第一个以外的其它的其他位置。</li>
+<li>默认值可以引用结构赋值的其他变量，但该变量必须已经声明。</li>
+</ul>
+<h5 id="21、下列对css外边距描述正确的是（不考虑BFC对边距的影响）"><a href="#21、下列对css外边距描述正确的是（不考虑BFC对边距的影响）" class="headerlink" title="21、下列对css外边距描述正确的是（不考虑BFC对边距的影响）"></a>21、下列对css外边距描述正确的是（不考虑BFC对边距的影响）</h5><p>两个上下相邻的同级元素Div1，Div2。Div1的下边距是20px，Div2的上边距是10px。Div1和Div2的间距是20px</p>
+<p>box1的底部margin为10px，box2的顶部margin为20px，但表现在页面上2者之间的间隔为20px，而不是预想中的10+20px=30px，结果是选择2者之间最大的那个margin，这种机制被称为“外边距合并”；外边距合并不仅仅出现在相邻的元素间，父子间同样会出现。</p>
+<h5 id="22、indexDB"><a href="#22、indexDB" class="headerlink" title="22、indexDB"></a>22、indexDB</h5><p>通俗地说，IndexedDB 就是浏览器提供的本地数据库，它可以被网页脚本创建和操作。IndexedDB 允许储存大量数据，提供查找接口，还能建立索引。这些都是 LocalStorage 所不具备的。就数据库类型而言，IndexedDB 不属于关系型数据库（不支持 SQL 查询语句），更接近 NoSQL 数据库。</p>
+<p>IndexedDB 具有以下特点。</p>
+<p><strong>（1）键值对储存。</strong> IndexedDB 内部采用对象仓库（object store）存放数据。所有类型的数据都可以直接存入，包括 JavaScript 对象。对象仓库中，数据以”键值对”的形式保存，每一个数据记录都有对应的主键，主键是独一无二的，不能有重复，否则会抛出一个错误。</p>
+<p><strong>（2）异步。</strong> IndexedDB 操作时不会锁死浏览器，用户依然可以进行其他操作，这与 LocalStorage 形成对比，后者的操作是同步的。异步设计是为了防止大量数据的读写，拖慢网页的表现。</p>
+<p><strong>（3）支持事务。</strong> IndexedDB 支持事务（transaction），这意味着一系列操作步骤之中，只要有一步失败，整个事务就都取消，数据库回滚到事务发生之前的状态，不存在只改写一部分数据的情况。</p>
+<p><strong>（4）同源限制</strong> IndexedDB 受到同源限制，每一个数据库对应创建它的域名。网页只能访问自身域名下的数据库，而不能访问跨域的数据库。</p>
+<p><strong>（5）储存空间大</strong> IndexedDB 的储存空间比 LocalStorage 大得多，一般来说不少于 250MB，甚至没有上限。</p>
+<p><strong>（6）支持二进制储存。</strong> IndexedDB 不仅可以储存字符串，还可以储存二进制数据（ArrayBuffer 对象和 Blob 对象）</p>
+<h5 id="23、浮点方法"><a href="#23、浮点方法" class="headerlink" title="23、浮点方法"></a>23、浮点方法</h5><ol>
+<li>parseFloat 解析一个字符串，并返回一个浮点数</li>
+<li>toFixed 把数字转换为字符串，结果的小数点后有指定位数的数字</li>
+<li>Math.round 把一个数字舍入为最接近的整数</li>
+<li>toPrecision 把数字格式化为指定的有效数字</li>
+</ol>
+<h5 id="24、如何判断一个js对象是否是Array-arr为要判断的对象，其中最准确的方法是？"><a href="#24、如何判断一个js对象是否是Array-arr为要判断的对象，其中最准确的方法是？" class="headerlink" title="24、如何判断一个js对象是否是Array,arr为要判断的对象，其中最准确的方法是？"></a>24、如何判断一个js对象是否是Array,arr为要判断的对象，其中最准确的方法是？</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-built_in">Object</span>.prototype.toString.call(arr) === <span class="hljs-string">&#x27;[object Array]&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://uploadfiles.nowcoder.com/images/20170720/6941986_1500560338203_5B46C4D74B16DE332AFD135B27C26F7F" srcset="/img/loading.gif" alt="img"></p>
+<p>instanceof 在跨 frame 对象构建的场景下会失效</p>
+<h5 id="25、假设DOM结构为："><a href="#25、假设DOM结构为：" class="headerlink" title="25、假设DOM结构为："></a>25、假设DOM结构为：</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;a&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;b&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>JS代码为：</p>
+<p>当点击id为b的div时，控制台输出的内容是：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;a&#x27;</span>).addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> &#123;<span class="hljs-built_in">console</span>.log(<span class="hljs-number">1</span>)&#125;);<br><span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;b&#x27;</span>).addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> &#123;e.preventDefault();<span class="hljs-built_in">console</span>.log(<span class="hljs-number">2</span>)&#125;);<br></code></pre></td></tr></table></figure>
+
+<p>当点击id为b的div时，控制台输出的内容是：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-number">2</span><br><span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/javascript%E3%80%81css%E3%80%81html/">javascript、css、html</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%AC%94%E8%AF%95/">笔试</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/12/26/%E5%AD%A6%E4%B9%A0%E5%88%AB%E4%BA%BA%E7%9A%84%E9%9D%A2%E7%BB%8F/">
+                        <span class="hidden-mobile">学习贴</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+    <span>Theme is designed by<span> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span> Fluid</span></a> <div id="hitokoto"><script defer>hitokoto()</script></div><script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto"></script> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

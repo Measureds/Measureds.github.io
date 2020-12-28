@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.4k 字
+      3.6k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      28
+      43
        分钟
     </span>
   
@@ -591,7 +591,181 @@
 <li><p>闭包的缺点<br>1、常驻内存中，会增大内存的使用量；</p>
 </li>
 </ul>
-<h5 id="7、原生的dom操作"><a href="#7、原生的dom操作" class="headerlink" title="7、原生的dom操作"></a>7、原生的dom操作</h5>
+<h5 id="7、原生的dom操作"><a href="#7、原生的dom操作" class="headerlink" title="7、原生的dom操作"></a>7、原生的dom操作</h5><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>document.createElement(TagName)</td>
+<td>创建新元素</td>
+</tr>
+<tr>
+<td>document.getElementById(“Id”)</td>
+<td>按照ID查询</td>
+</tr>
+<tr>
+<td>element.getElementsByClassName()  ie9+</td>
+<td>按照Class查询</td>
+</tr>
+<tr>
+<td>element.querySelectorAll()         ie8</td>
+<td>按照Class查询</td>
+</tr>
+<tr>
+<td>element.getElementsByTagName()   ie6+</td>
+<td>按照Tag查询</td>
+</tr>
+<tr>
+<td>element.parentNode()</td>
+<td>获取父节点</td>
+</tr>
+<tr>
+<td>element.childNode()</td>
+<td>获取子节点</td>
+</tr>
+<tr>
+<td>parentElement.appendChild(child)</td>
+<td>添加到最后面</td>
+</tr>
+<tr>
+<td>parentElement.insertBefore(newElement,Element)</td>
+<td>newElement添加到elemnt前面</td>
+</tr>
+<tr>
+<td>element.style.css</td>
+<td>修改css</td>
+</tr>
+<tr>
+<td>element.setAttribute()</td>
+<td></td>
+</tr>
+<tr>
+<td>element.removeAtrribute()</td>
+<td></td>
+</tr>
+<tr>
+<td>element.lacssNam</td>
+<td></td>
+</tr>
+</tbody></table>
+<h5 id="8、inline-block和inline和block区别"><a href="#8、inline-block和inline和block区别" class="headerlink" title="8、inline-block和inline和block区别"></a>8、inline-block和inline和block区别</h5><ul>
+<li><strong>inline</strong>：使元素变成行内元素（内联），拥有行内元素的特性，即</li>
+</ul>
+<ol>
+<li>与其他行内元素共享一行</li>
+<li>不能修改width、height属性，大小由内容撑开</li>
+<li>padding属性 top、right、botto、left设置都有效；margin属性只有left、right设置有效</li>
+</ol>
+<ul>
+<li><strong>block</strong>： 使元素变成块级元素，拥有块级的特性，即</li>
+</ul>
+<ol>
+<li>独占一行，在不设置自己的宽度的情况下，块级元素会默认填满父级元素的宽度</li>
+<li>可以修改width、height属性</li>
+<li>padding、margin四个方向的值设置均有效</li>
+</ol>
+<ul>
+<li><strong>inline-block</strong>： 使元素变成行内块级元素，结合了行内元素和块级元素的特性（不独占一行的块级元素），即</li>
+</ul>
+<ol>
+<li>与其他行内元素共享一行</li>
+<li>可以修改width、height属性</li>
+<li>padding、margin四个方向的值设置均有效</li>
+</ol>
+<p>注意：当多个inline-block的元素写在一起时，是否换行效果不同（换行后两者中间会有间距），如img、button标签，这也是代码经过压缩后效果与开发版本不同的原因之一，解决方案是去除换行</p>
+<h5 id="9、什么是非对称加密"><a href="#9、什么是非对称加密" class="headerlink" title="9、什么是非对称加密"></a>9、什么是非对称加密</h5><ul>
+<li>非对称加密：加密算法需要两个密钥进行加密和解密，这两个密钥是公开密钥和私有密钥</li>
+<li>加密和解密使用的是同一个密钥</li>
+</ul>
+<h5 id="10、CSS3动画"><a href="#10、CSS3动画" class="headerlink" title="10、CSS3动画"></a>10、CSS3动画</h5><p>Css3可以创建动画，它可以取代许多页面动画图像、Flash动画和JavaScript实现的效果</p>
+<p>CSs3 @Keyframes规则</p>
+<ul>
+<li><p>@Keyframes的规则是创建动画：当在@Keyframes创建动画，把它绑定到一个选择器，否则动画不会有任何效果。指定至少这两个CSS3的动画属性绑定向一个选择器。</p>
+<ul>
+<li><p>规定动画的名称</p>
+</li>
+<li><p>规定动画的时长</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">div</span><br>&#123;<br>	<span class="hljs-attribute">animation</span>: myfirst <span class="hljs-number">5s</span>	<span class="hljs-comment">/*您必须定义动画的名称和动画的持续时间。如果省略的持续时间，动画将无法运行，因为默认值是0*/</span><br>	-webkit-animation:myfirst <span class="hljs-number">5s</span>; <span class="hljs-comment">/*Safari与Chrome*/</span><br>    <br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>@Keyframes规则内指定一个Css样式和动画将逐步从目前的样式更改为新的样式。</p>
+<ul>
+<li>Css3动画是什么？动画是使元素从一种样式逐渐变化为另一种样式的效果。</li>
+</ul>
+<p>您可以改变任意多的样式任意多的次数。</p>
+<p>请用百分比来规定<code>发生的时间</code>,或用关键词“from”和”to“，等同于0%和100%</p>
+<p>0%是动画的开始，100%是动画的完成。</p>
+<p>为了得到最佳的浏览器支持，您应该始终定义0%和100%的选择器</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-keyword">@keyframes</span> myfirst<br>&#123;<br>	0% &#123;<span class="hljs-attribute">background</span>:red; <span class="hljs-attribute">left</span>:<span class="hljs-number">0px</span>; <span class="hljs-attribute">top</span>:<span class="hljs-number">0px</span>;&#125;<br>	25%&#123;<span class="hljs-attribute">background</span>:yellow; <span class="hljs-attribute">left</span>:<span class="hljs-number">200px</span>; <span class="hljs-attribute">top</span>:<span class="hljs-number">0px</span>;&#125;<br>	50%&#123;<span class="hljs-attribute">background</span>:blue; <span class="hljs-attribute">left</span>:<span class="hljs-number">200px</span>; <span class="hljs-attribute">top</span>:<span class="hljs-number">200px</span>;&#125;<br>	100%&#123;<span class="hljs-attribute">background</span>:green; <span class="hljs-attribute">left</span>:<span class="hljs-number">0px</span>; <span class="hljs-attribute">top</span>:<span class="hljs-number">0px</span>;&#125;<br>&#125;<br><br><span class="hljs-keyword">@-webkit-keyframes</span> myfirst /*Safari与Chrome*/<br>&#123;<br>	0% &#123;<span class="hljs-attribute">background</span>:red; <span class="hljs-attribute">left</span>:<span class="hljs-number">0px</span>; <span class="hljs-attribute">top</span>:<span class="hljs-number">0px</span>;&#125;<br>	25%&#123;<span class="hljs-attribute">background</span>:yellow; <span class="hljs-attribute">left</span>:<span class="hljs-number">200px</span>; <span class="hljs-attribute">top</span>:<span class="hljs-number">0px</span>;&#125;<br>	50%&#123;<span class="hljs-attribute">background</span>:blue; <span class="hljs-attribute">left</span>:<span class="hljs-number">200px</span>; <span class="hljs-attribute">top</span>:<span class="hljs-number">200px</span>;&#125;<br>	100%&#123;<span class="hljs-attribute">background</span>:green; <span class="hljs-attribute">left</span>:<span class="hljs-number">0px</span>; <span class="hljs-attribute">top</span>:<span class="hljs-number">0px</span>;&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<p>@keyframes规则和所有动画属性</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>@keyframes</td>
+<td>规定动画</td>
+</tr>
+<tr>
+<td>animation</td>
+<td>所有动画属性的简写属性。</td>
+</tr>
+<tr>
+<td>animation-name</td>
+<td>规定@keyframes动画的名称</td>
+</tr>
+<tr>
+<td>animation-duration</td>
+<td>规定动画完成一个周期所花费的秒或毫秒</td>
+</tr>
+<tr>
+<td>animation-timing-function</td>
+<td>规定动画的速度曲线。默认是”ease“</td>
+</tr>
+<tr>
+<td>animation-fill-mode</td>
+<td>规定当动画不播放时（当动画完成时，或当动画有一个延迟未开始播放时）元素的样式</td>
+</tr>
+<tr>
+<td>animation-delay</td>
+<td>规定动画何时开始，默认是0。</td>
+</tr>
+<tr>
+<td>animation-iteration-count</td>
+<td>规定动画被播放的次数。默认是1。</td>
+</tr>
+<tr>
+<td>animation-direction</td>
+<td>规定动画是否在下一周期逆向地播放。默认是”normal“。</td>
+</tr>
+<tr>
+<td>animation-play-state</td>
+<td>规定动画是否正在运行或暂停。默认是”running“</td>
+</tr>
+</tbody></table>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">div</span><br>&#123;<br>    <span class="hljs-attribute">animation-name</span>: myfirst;<br>    <span class="hljs-attribute">animation-duration</span>: <span class="hljs-number">5s</span>;<br>    <span class="hljs-attribute">animation-timing-function</span>: linear;<br>    <span class="hljs-attribute">animation-delay</span>: <span class="hljs-number">2s</span>;<br>    <span class="hljs-attribute">animation-iteration-count</span>: infinite;<br>    <span class="hljs-attribute">animation-direction</span>: alternate;<br>    <span class="hljs-attribute">animation-play-state</span>: running;<br>    <span class="hljs-comment">/* Safari 与 Chrome: */</span><br>    <span class="hljs-attribute">-webkit-animation-name</span>: myfirst;<br>    <span class="hljs-attribute">-webkit-animation-duration</span>: <span class="hljs-number">5s</span>;<br>    <span class="hljs-attribute">-webkit-animation-timing-function</span>: linear;<br>    <span class="hljs-attribute">-webkit-animation-delay</span>: <span class="hljs-number">2s</span>;<br>    <span class="hljs-attribute">-webkit-animation-iteration-count</span>: infinite;<br>    <span class="hljs-attribute">-webkit-animation-direction</span>: alternate;<br>    <span class="hljs-attribute">-webkit-animation-play-state</span>: running;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h5 id="11、事件冒泡和事件捕获"><a href="#11、事件冒泡和事件捕获" class="headerlink" title="11、事件冒泡和事件捕获"></a>11、事件冒泡和事件捕获</h5><p>事件是文档和浏览器窗口中发生的</p>
+<h5 id="12、transition属性"><a href="#12、transition属性" class="headerlink" title="12、transition属性"></a>12、transition属性</h5><p>transition属性设置元素当过渡效果，四个简写属性为：</p>
+<ul>
+<li>transition-property      指定Css属性的name,transition效果</li>
+<li>transition-duration       transition效果需要指定多少秒或毫秒才能完成</li>
+<li>transition-timing-function       指定transition效果的转速曲线</li>
+<li>transition-delay             定义transition效果开始的时候</li>
+</ul>
+
             </div>
             <hr>
             <div>
@@ -620,6 +794,12 @@
                 <div class="post-prevnext row">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2020/12/28/%E7%AC%94%E8%AF%95%E9%97%AE%E9%A2%98/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">笔试学习贴</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">

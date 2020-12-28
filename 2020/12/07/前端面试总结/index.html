@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4.3k 字
+      4.7k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      50
+      54
        分钟
     </span>
   
@@ -263,7 +263,15 @@
 </ul>
 <p>1、考虑到盒子的大小设置会比较麻烦，有时设置的width，结果最后大小不是之前设置的大小，所以这时就要box-sizing登场了，当我们设置box-sizing:border-box以后，如果我们想要一个宽度100的盒子，直接设置width为100，就不用考虑该盒子是否为标准盒子了。这是box-sizing最实用的一个属性。等于：siting-width=border+padding+content-width;（为元素设定的宽度和高度决定了元素的边框盒。就是说，为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制。通过从已设定的宽度和高度分别减去边框和内边距才能得到内容的宽度和高度）</p>
 <p>2、当box-sizing设置成content-box后，等于标准情况：siting-width=conten-width;（在宽度和高度之外绘制元素的内边距和边框。）</p>
-<h5 id="8、弹性flex布局"><a href="#8、弹性flex布局" class="headerlink" title="8、弹性flex布局"></a>8、弹性flex布局</h5><p>给予容器控制内部元素高度和宽度的能力。</p>
+<h5 id="8、弹性flex布局"><a href="#8、弹性flex布局" class="headerlink" title="8、弹性flex布局"></a>8、弹性flex布局</h5><blockquote>
+<p>通过修改父元素div的<code>display:flex</code>，让父元素成为一个<code>flex容器</code>，从而可以自由的操作容器中子元素（项目）的排列方式。</p>
+</blockquote>
+<ul>
+<li>为什么现在我们都用flex布局</li>
+</ul>
+<p>例如我们让多个div横向排列，传统做法是使用浮动，但浮空后因为脱离文档流的缘故，父元素会失去高度，这又涉及了清除浮动等一系列的问题。</p>
+<p>而flex布局相对简单很多，修改父元素display:flex，你会发现div自动就排列成了一行，而且没有浮动之后的副作用，从回流角度考虑，flex的性能更优于float；随着浏览器不断兼容以及旧版本的淘汰，flex布局注定会成为更为流行的布局方案。</p>
+<p>给予容器控制内部元素高度和宽度的能力。</p>
 <p>在webkit内核的浏览器使用时，必须加上**-webkit-**前缀</p>
 <ul>
 <li>Google Chrome 谷歌浏览器</li>
@@ -693,6 +701,9 @@
 <h5 id="23、Promise的原理"><a href="#23、Promise的原理" class="headerlink" title="23、Promise的原理"></a>23、Promise的原理</h5><p><code>Promise</code>的规范很多,ES6采用的<code>Promise/A+</code>规范</p>
 <p>Promise的状态包括：pedding、fulfilled、rejected三种状态，并且只能由pedding转变为fulfillde或者rejected,而且仅能改变一次。</p>
 <p>当执行完resolve()的时候，状态会随之改变为reject。</p>
+<h5 id="24、vue是什么时候从后台获取数据的"><a href="#24、vue是什么时候从后台获取数据的" class="headerlink" title="24、vue是什么时候从后台获取数据的"></a>24、vue是什么时候从后台获取数据的</h5><p>beforeCreate 和 created 都是早期钩子，是我们获取数据的较好时机，如果获取的数据与绑定事件有关，可以放到 created 里面，无关的话，都可以，在服务器端的应用场景中， beforeCreate 可能会用到的多一些。</p>
+<p>beforeMount 和 mounted 多用于页面组件上有新的用户交互，触发新的请求时候使用，比如在 mounted 里手动去触发滚动条的位置，而 beforeMount 里面，可以做比如通过域名识别来获取微信认证信息的操作。</p>
+<p>应该beforecreate和created</p>
 
             </div>
             <hr>
