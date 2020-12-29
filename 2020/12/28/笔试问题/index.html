@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      6.6k 字
+      9.4k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      76
+      108
        分钟
     </span>
   
@@ -617,7 +617,8 @@
 <h5 id="50、使用link和-import有什么区别"><a href="#50、使用link和-import有什么区别" class="headerlink" title="50、使用link和@import有什么区别"></a>50、使用link和@import有什么区别</h5><p>1.从属关系区别 @import是 CSS 提供的语法规则，只有导入样式表的作用；link是HTML提供的标签，不仅可以加载 CSS 文件，还可以定义 RSS、rel 连接属性等。 </p>
 <p>2.加载顺序区别 加载页面时，link标签引入的 CSS 被同时加载；@import引入的 CSS 将在页面加载完毕后被加载。</p>
 <p> 3.兼容性区别 @import是 CSS2.1 才有的语法，故只可在 IE5+ 才能识别；link标签作为 HTML 元素，不存在兼容性问题。</p>
-<p> 4.DOM可控性区别 可以通过 JS 操作 DOM ，插入link标签来改变样式；由于 DOM 方法是基于文档的，无法使用@import的方式插入样式。 5.权重区别 link引入的样式权重大于@import引入的样式。</p>
+<p> 4.DOM可控性区别 可以通过 JS 操作 DOM ，插入link标签来改变样式；由于 DOM 方法是基于文档的，无法使用@import的方式插入样式。</p>
+<p>5.权重区别 link引入的样式权重大于@import引入的样式。</p>
 <h5 id="51、JS的RegExp对象方法"><a href="#51、JS的RegExp对象方法" class="headerlink" title="51、JS的RegExp对象方法"></a>51、JS的RegExp对象方法</h5><p>JavaScript RegExp 对象有 3 个方法：test()、exec() 和 compile()。</p>
 <ol>
 <li>test() 方法用来检测一个字符串是否匹配某个正则表达式，如果匹配成功，返回 true ，否则返回 false；</li>
@@ -653,6 +654,80 @@
 <li>tel：用于输入电话号码的控件。在移动端输入会显示数字键盘，PC端无效果</li>
 <li>url：用于编辑URL的字段。</li>
 </ul>
+<h5 id="55、设置不同屏幕中，元素的位置不会发生改变的是（）"><a href="#55、设置不同屏幕中，元素的位置不会发生改变的是（）" class="headerlink" title="55、设置不同屏幕中，元素的位置不会发生改变的是（）"></a>55、设置不同屏幕中，元素的位置不会发生改变的是（）</h5><p>使用 @media screen查询，你可以针对不同的媒体类型定义不同的样式。</p>
+<p>@media 可以针对不同的屏幕尺寸设置不同的样式，特别是如果你需要设置设计响应式的页面，@media 是非常有用的。</p>
+<p>当你重置浏览器大小的过程中，页面也会根据浏览器的宽度和高度重新渲染页面。</p>
+<h5 id="56、实现翻书的效果可以使用css3里的什么方法"><a href="#56、实现翻书的效果可以使用css3里的什么方法" class="headerlink" title="56、实现翻书的效果可以使用css3里的什么方法"></a>56、实现翻书的效果可以使用css3里的什么方法</h5><p>A、rotateY：定义沿 Y 轴的 3D 旋转，可实现翻书的效果</p>
+<p>B、translateY：沿着 Y 轴移动元素</p>
+<p>C、scaleY：定义 2D 缩放转换时，改变元素的高度；定义 3D 缩放转换时，通过给定一个 Y 轴的值</p>
+<p>D、perspective(n)：改变3D元素是怎样查看透视图（注：只影响 3D 转换元素）</p>
+<h5 id="57、H5中常用的新特性"><a href="#57、H5中常用的新特性" class="headerlink" title="57、H5中常用的新特性"></a>57、H5中常用的新特性</h5><p>HTML5中常用的新特性：</p>
+<p>canvas元素：用于定义图形（图表等），只是图形容器，必须使用脚本来绘制图形。</p>
+<p>audio：用于音频播放。</p>
+<p>video：用于视频播放。</p>
+<p>article：规定独立的自包含内容。</p>
+<p>header：定义文档的页眉，介绍相关信息。</p>
+<p>section：定义文档中的节。</p>
+<p>footer：定义文档的页脚，通常有文档的作者、版权信息、联系方式等。</p>
+<p>nav：定义导航链接。</p>
+<p>表单控件：</p>
+<p>calender</p>
+<p>date</p>
+<p>time</p>
+<p>email</p>
+<p>url</p>
+<p>search</p>
+<h5 id="58、在文件-home-somebody-workspace-somemodule-js中第一行引用了一个模块：require-‘othermodule‘-，请问required-的查找模块的顺序"><a href="#58、在文件-home-somebody-workspace-somemodule-js中第一行引用了一个模块：require-‘othermodule‘-，请问required-的查找模块的顺序" class="headerlink" title="58、在文件/home/somebody/workspace/somemodule.js中第一行引用了一个模块：require(‘othermodule‘)，请问required 的查找模块的顺序"></a>58、在文件/home/somebody/workspace/somemodule.js中第一行引用了一个模块：require(‘othermodule‘)，请问required 的查找模块的顺序</h5><p>A. /home/somebody/workspace/node_modules/othermodule/index.js<br>B. /home/somebody/workspace/node_modules/othermodule. Js<br>C.CORE MODULES named othermodule<br>D./home/somebody/node_modules/othermodule/index.js</p>
+<p>解析：(1):首先，Node在当前目录下查找<code>package.json</code>(CommonJS包规范定义的包描述文件)，通过JSON.parse()解析出包描述对象，从中取出main属性指定的文件名进行定位。如果文件缺少扩展名，将会进入扩展名分析的步骤。 　　</p>
+<p>(2):而如果main属性制定的文件名错误，或者压根没有package.json文件，Node会将index当做默认文件名，然后依次查找index.js、index.node、index.json. 　　</p>
+<p>(3):如果在目录分析的过程中没有定位成功任何文件，则自定义模块进入下一个模块路径进行查找。如果模块路径数组都被遍历完毕，依然没有查找到目标文件，则会抛出查找失败异常。 　　按照上面的思路，首先应该查找package.json文件，看看里面有没有核心模块，应该是C最先，othermodule不是核心模块，那么接着应该进入扩展名分析的步骤，就应该是查找othermodule. js，对应B，紧接着就是以index为默认文件名，也就是A，再接下来就是上一个文件目录D了，<br>所以答案是： C B A D</p>
+<h5 id="59、嵌入在HTMl文档中的图像格式是"><a href="#59、嵌入在HTMl文档中的图像格式是" class="headerlink" title="59、嵌入在HTMl文档中的图像格式是"></a>59、嵌入在HTMl文档中的图像格式是</h5><p>网页html文档支持的图片格式有jpg ， gif  ,   png  和  bmp  这四种，jpg ， gif  和  png 格式的图片特点是体积很小，因为在网上很常见，然而 bmp就不常见了，因为这种格式虽然很清晰色彩丰富，但是所占内存很大，所以很少见，但是也是支持的。一共这4种</p>
+<h5 id="60、bootstrap中如何让一个区块居中"><a href="#60、bootstrap中如何让一个区块居中" class="headerlink" title="60、bootstrap中如何让一个区块居中?"></a>60、bootstrap中如何让一个区块居中?</h5><p>center、center-block</p>
+<p>center是指<code>&lt;center&gt;&lt;/center&gt;</code>标签,center-block是bootstrap的样式 .center-block</p>
+<h5 id="61、行内块标签"><a href="#61、行内块标签" class="headerlink" title="61、行内块标签"></a>61、行内块标签</h5><p>行内元素典型代表 span ,a, ,strong , em, del, ins</p>
+<p>特点：★在一行上显示</p>
+<p>   ★不能直接设置宽高</p>
+<p>   ★元素的宽和高就是内容撑开的宽高。</p>
+<p>行内块元素（内联元素）典型代表 input img</p>
+<p>特点：★在一行上显示</p>
+<p>   ★可以设置宽高</p>
+<p>块元素典型代表,div,h1-h6,p,ul,li</p>
+<p>特点: ★独占一行</p>
+<p>   ★可以设置宽高</p>
+<p>   ★ 嵌套（包含）下，子块元素宽度（没有定义情况下）和父块元素宽度默认一致。</p>
+<h5 id="62、this的问题"><a href="#62、this的问题" class="headerlink" title="62、this的问题"></a>62、this的问题</h5><p>this的行为有时候会显得极其诡异，让人感到困惑，但只需要记住 <strong>this的值要等到代码真正执行时才能确定</strong><br>同时this的值具体有以下几种情况：</p>
+<ol>
+<li>new 调用时指的是被构造的对象</li>
+<li>call、apply调用，指向我们指定的对象</li>
+<li>对象调用，如执行obj.b()，this指向obj</li>
+<li>默认的，指向全局变量window(相当于执行window.fun())</li>
+</ol>
+<p>这样看来，当你执行fun()的时候，以上1,2点均不满足。<br>第3点,因为this是运行时确定的，而我们执行fun()，等同于windown.fun()(<strong>与obj没有任何关系</strong>)，自然的this指向window，而window没有定义变量a，结果是undefined。</p>
+<h5 id="63、如何使用css-选择器定义某个父元素中所有第”奇数”个子元素的样式："><a href="#63、如何使用css-选择器定义某个父元素中所有第”奇数”个子元素的样式：" class="headerlink" title="63、如何使用css 选择器定义某个父元素中所有第”奇数”个子元素的样式："></a>63、如何使用css 选择器定义某个父元素中所有第”奇数”个子元素的样式：</h5><p>nth-child(odd) ：定义某个父元素中所有第”奇数”个子元素的样式</p>
+<p>nth-of-type(odd) ：定义某个父元素中的不同类型中的所有第”奇数”个子元素的样式</p>
+<p>nth-child(odd) 奇数 ,nth-child(even) 偶数。</p>
+<p>nth-child(n) : 匹配父元素中的第 n 个子元素，元素类型没有限制。</p>
+<h5 id="64、哪个元素创建了一组选项"><a href="#64、哪个元素创建了一组选项" class="headerlink" title="64、哪个元素创建了一组选项"></a>64、哪个元素创建了一组选项</h5><p><code>&lt;optgroup&gt;</code></p>
+<h5 id="65、哪些方法可以用作javascript异步模式的编程"><a href="#65、哪些方法可以用作javascript异步模式的编程" class="headerlink" title="65、哪些方法可以用作javascript异步模式的编程"></a>65、哪些方法可以用作javascript异步模式的编程</h5><p>先解释一下“同步模式”和“异步模式”：<br>（1）同步模式：就是后一个任务等待前一个任务结束，然后再执行，程序的执行顺序与任务的排列顺序是一致的、同步的。<br>（2）异步模式：完全不同，每一个任务有一个或多个回调函数（callback），前一个任务结束后，不是执行后一个任务，而是执行回调函数，<br>                           后一个任务则是不等前一个任务结束就执行，所以程序的执行顺序与任务的排列顺序是不一致的、异步的。<br>JavaScript中实现异步编程模式的4种方法,回调函数、事件监听、发布/订阅、Promises对象：<br>（1）回调函数：这是异步编程最基本的方法，优点是简单、容易理解和部署，缺点是不利于代码的阅读和维护，各个部分之间高度耦合<br>                        （Coupling），流程会很混乱，而且每个任务只能指定一个回调函数。<br>                         例：假定有两个函数f1和f2，后者等待前者的执行结果，如果f1是一个很耗时的任务，可以考虑改写f1，把f2写成f1的回调函<br>                         数。<br>（2）事件监听：任务的执行不取决于代码的顺序，而取决于某个事件是否发生。优点是比较容易理解，可以绑定多个事件，每个事件可以指定<br>                           多个回调函数，而且可以”去耦合”（Decoupling），有利于实现模块化。缺点是整个程序都要变成事件驱动型，运行流程会变<br>                           得很不清晰。<br>                           例：为f1绑定一个事件，当f1发生done事件，就执行f2。<br>（3）发布/订阅：我们假定，存在一个”信号中心”，某个任务执行完成，就向信号中心”发布”（publish）一个信号，其他任务可以向信号中心”订<br>                           阅”（subscribe）这个信号，从而知道什么时候自己可以开始执行。这就叫做”发布/订阅模式”（publish-subscribe pattern），<br>                           又称”观察者模式”（observer pattern）。<br>                           这种方法的性质与”事件监听”类似，但是明显优于后者。因为我们可以通过查看”消息中心”，了解存在多少信号、每个信号<br>                           有多少订阅者，从而监控程序的运行。<br>（4）Promises对象：是CommonJS工作组提出的一种规范，目的是为异步编程提供统一接口。简单说，它的思想是，每一个异步任务返回一个<br>                                  Promise对象，该对象有一个then方法，允许指定回调函数。回调函数变成了链式写法，程序的流程可以看得很清楚，而<br>                                  且有一整套的配套方法，可以实现许多强大的功能。<br>                                  例：f1的回调函数f2，f1().then(f2);</p>
+<h5 id="66、Ajax和Flash的优缺点"><a href="#66、Ajax和Flash的优缺点" class="headerlink" title="66、Ajax和Flash的优缺点"></a>66、Ajax和Flash的优缺点</h5><p><strong>引用：<a target="_blank" rel="noopener" href="http://www.awflasher.com/blog/archives/503">http://www.awflasher.com/blog/archives/503</a><br>Ajax的优势</strong></p>
+<p><strong>可搜索性</strong><br>普通的文本网页会更有利于SEO。文本内容是搜索引擎容易检索的，而繁琐的swf字节码却是搜索引擎不愿触及的。虽然Google等一些大型的搜索引擎可以检索SWF内部的内容，但是仍然有很多麻烦存在。</p>
+<p><strong>开放性</strong><br>Flash常年以来被Macromedia看的很死。包括Flex、FMS等辅佐技术一直都需要昂贵的安装、维护费用。而JS则没有这样的麻烦。没有人愿意承担法律和版权的风险。</p>
+<p><strong>费用</strong><br>Flash开发是很昂贵的，因为FlashIDE等环境都是要收费的．而Ajax则不同．虽然有一些便宜的生成swf的工具，但是他们的工能实在无法满足复杂需求。</p>
+<p><strong>易用性</strong><br>Ajax程序有更好的易用性。由于中间有一层Flashplayer***层，因此许多辅助功能无法被Flash灵活利用。而且Flash在一些方面有着不好的口碑。比如弹出广告、比如恶意代码。<br>（awflasher.com个人认为这八成是乱上xx网站造成的）</p>
+<p><strong>易于开发</strong><br>人们开发复杂的Ajax和Flash应用程序时，都会借助一些高级的开发工具。普遍来说，Ajax的开发包比Flash简便、容易。</p>
+<p><strong>Flash的优势</strong><br><strong>多媒体处理</strong><br>Flash在音频、视频等多媒体领域相比HTML有绝对的优势。现在几乎所有的网站都包含有Flash内容。</p>
+<p><strong>兼容性</strong><br>兼容性好：由于通过了唯一的FlashPlayer“***”。人们不必像调试JS那样，在不同的浏览器中调试程序。</p>
+<p><strong>矢量图型</strong><br>这是Flash最大的优势，同样处在这一领域的SVG、Canvas element以及Direct完全不能与Flash相比。</p>
+<p><strong>客户端资源调度</strong><br>Flash能够更容易的调用浏览器以外的外部资源。比如摄像头、麦克风等。然而这是普通的HTML无法完成的。但是这也许是一个缺点（为什么呢？）</p>
+<h5 id="67、ele-clientWidth-宽度-padding"><a href="#67、ele-clientWidth-宽度-padding" class="headerlink" title="67、ele.clientWidth = 宽度 + padding"></a>67、ele.clientWidth = 宽度 + padding</h5><p>ele.offsetWidth = 宽度 + padding + border</p>
+<p> ele.scrollTop = 被卷去的上侧距离</p>
+<p> ele.scrollHeight = 自身实际的高度（不包括边框）</p>
+<h5 id="68-关于BFC"><a href="#68-关于BFC" class="headerlink" title="68.关于BFC"></a>68.关于BFC</h5><p>在一个Web页面的CSS渲染中，<a target="_blank" rel="noopener" href="http://www.w3.org/TR/CSS21/visuren.html#block-formatting">块级格式化上下文</a> (Block Fromatting Context)是按照块级盒子布局的。W3C对BFC的定义如下：</p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gams">浮动元素和绝对定位元素，非块级盒子的块级容器（例如 inline-blocks, <span class="hljs-keyword">table</span>-cells, 和 <span class="hljs-keyword">table</span>-captions），以及overflow值不为“visiable”的块级盒子，都会为他们的内容创建新的BFC（块级格式上下文）。<br></code></pre></td></tr></table></figure>
+
+<p>为了便于理解，我们换一种方式来重新定义BFC。一个HTML元素要创建BFC，则满足下列的任意一个或多个条件即可：</p>
+<p>1、float的值不是none。<br>2、position的值不是static或者relative。<br>3、display的值是inline-block、table-cell、flex、table-caption或者inline-flex<br>4、overflow的值不是visible</p>
+<p>BFC是一个独立的布局环境，其中的元素布局是不受外界的影响，并且在一个BFC中，块盒与行盒（行盒由一行中所有的内联元素所组成）都会垂直的沿着其父元素的边框排列。</p>
 
             </div>
             <hr>
