@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      613 字
+      749 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10
+      12
        分钟
     </span>
   
@@ -229,7 +229,81 @@
             <div class="markdown-body">
               <a id="more"></a>
 
-<h5 id="1、我想想考察了啥，好像是排序算法的时间复杂度和稳定性"><a href="#1、我想想考察了啥，好像是排序算法的时间复杂度和稳定性" class="headerlink" title="1、我想想考察了啥，好像是排序算法的时间复杂度和稳定性"></a>1、我想想考察了啥，好像是排序算法的时间复杂度和稳定性</h5><h5 id="2、还考察了手写promise-all"><a href="#2、还考察了手写promise-all" class="headerlink" title="2、还考察了手写promise.all()"></a>2、还考察了手写promise.all()</h5><p>首先promise.all()会异promise数组的形式传入一组promise,把Promise实例包装成一个新的Promise，同时，成功和失败的返回值是不一样的，成功的时候返回的是一个结果数组，而失败的时候返回最先被reject的失败状态的值。</p>
+<h5 id="1、我想想考察了啥，好像是排序算法的时间复杂度和稳定性"><a href="#1、我想想考察了啥，好像是排序算法的时间复杂度和稳定性" class="headerlink" title="1、我想想考察了啥，好像是排序算法的时间复杂度和稳定性"></a>1、我想想考察了啥，好像是排序算法的时间复杂度和稳定性</h5><table>
+<thead>
+<tr>
+<th>排序算法</th>
+<th>平均时间复杂度</th>
+<th>最坏时间复杂度</th>
+<th>空间复杂度</th>
+<th>是否稳定</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>冒泡排序</td>
+<td>O（n2）</td>
+<td>O（n2）</td>
+<td>O（1）</td>
+<td>是</td>
+</tr>
+<tr>
+<td>选择排序</td>
+<td>O（n2）</td>
+<td>O（n2）</td>
+<td>O（1）</td>
+<td>不是</td>
+</tr>
+<tr>
+<td>直接插入排序</td>
+<td>O（n2）</td>
+<td>O（n2）</td>
+<td>O（1）</td>
+<td>是</td>
+</tr>
+<tr>
+<td>归并排序</td>
+<td>O(nlogn)</td>
+<td>O(nlogn)</td>
+<td>O（n）</td>
+<td>是</td>
+</tr>
+<tr>
+<td>快速排序</td>
+<td>O(nlogn)</td>
+<td>O（n2）</td>
+<td>O（logn）</td>
+<td>不是</td>
+</tr>
+<tr>
+<td>堆排序</td>
+<td>O(nlogn)</td>
+<td>O(nlogn）</td>
+<td>O（1）</td>
+<td>不是</td>
+</tr>
+<tr>
+<td>希尔排序</td>
+<td>O(nlogn)</td>
+<td>O（ns）</td>
+<td>O（1）</td>
+<td>不是</td>
+</tr>
+<tr>
+<td>计数排序</td>
+<td>O(n+k)</td>
+<td>O(n+k)</td>
+<td>O(n+k)</td>
+<td>是</td>
+</tr>
+<tr>
+<td>基数排序</td>
+<td>O(N∗M）</td>
+<td>O(N∗M)</td>
+<td>O(M)</td>
+<td>是</td>
+</tr>
+</tbody></table>
+<h5 id="2、还考察了手写promise-all"><a href="#2、还考察了手写promise-all" class="headerlink" title="2、还考察了手写promise.all()"></a>2、还考察了手写promise.all()</h5><p>首先promise.all()会异promise数组的形式传入一组promise,把Promise实例包装成一个新的Promise，同时，成功和失败的返回值是不一样的，成功的时候返回的是一个结果数组，而失败的时候返回最先被reject的失败状态的值。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 手写一个promise.all()</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;Promise&#125;</span> </span>promises </span><br><span class="hljs-comment"> */</span><br><span class="hljs-built_in">Promise</span>.myall = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">promises</span>)</span>&#123;<br>    <span class="hljs-keyword">const</span> values = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(promises.length)<br>    <span class="hljs-keyword">var</span> resolvedCount = <span class="hljs-number">0</span>;<span class="hljs-comment">//计状态为resolved的promise的数量</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve,reject</span>) =&gt;</span>&#123;<br>        promises.foreach(<span class="hljs-function">(<span class="hljs-params">p,index</span>)=&gt;</span>&#123;<br>            promises.resolve(p).then(<br>                value =&gt;&#123;<br>                    <span class="hljs-comment">//p的状态为resolved，将值保存起来</span><br>                    values[index] = value<br>                    resolvedCount++;<br>                    <span class="hljs-comment">//如果状态全部都为resolved状态，return的promise的状态为resolve</span><br>                    <span class="hljs-keyword">if</span>(resolvedCount === promises.length)&#123;<br>                        resolve(values)<br>                    &#125;<br>                &#125;,<br>                reason =&gt;&#123;<br>                    reject(reason);<br>                &#125;)<br>        &#125;)<br>    &#125;)<br>&#125;<br><br><span class="hljs-comment">//写法二</span><br><span class="hljs-built_in">Promise</span>.all = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">arrPromise</span>)</span>&#123;<br>    <span class="hljs-keyword">let</span> list = [];<br>    <span class="hljs-keyword">let</span> len = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">let</span> hasErr = <span class="hljs-literal">false</span>;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve,reject</span>) =&gt;</span>&#123;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>;i &lt; arrPromise.length;i++)&#123;<br>            arrPromise[i].then(<span class="hljs-function"><span class="hljs-params">data</span>=&gt;</span>&#123;<br>                list[i] = data<br>                len++<br>                <span class="hljs-keyword">if</span>(len === arrPromise.length)<br>                resolve(list)<br>            &#125;,<span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span>&#123;<br>                <span class="hljs-keyword">if</span>(!hasErr)<br>                reject(error)<br>                hasErr = <span class="hljs-literal">true</span>;<br>            &#125;)<br>        &#125;<br>    &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>扩展：那咱们再手写一个promise.race()</p>

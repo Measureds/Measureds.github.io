@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.9k 字
+      3.5k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      33
+      42
        分钟
     </span>
   
@@ -417,7 +417,43 @@
 <li>表格标题：元素的display为table-caption,html表格标题默认为该值</li>
 <li>overflow:不为visible</li>
 </ul>
-<h5 id="5、前端缓存"><a href="#5、前端缓存" class="headerlink" title="5、前端缓存"></a>5、前端缓存</h5>
+<h5 id="5、手写一个抽奖展示页面"><a href="#5、手写一个抽奖展示页面" class="headerlink" title="5、手写一个抽奖展示页面"></a>5、手写一个抽奖展示页面</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>抽奖展示页<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><br><span class="css">        <span class="hljs-selector-id">#demo</span> &#123;</span><br>            list-style: none;<br>            height: 65px;<br>            overflow: hidden;<br>        &#125;<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>最近通知<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&#x27;demo&#x27;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>恭喜罗X获得特等奖 别墅一套<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>恭喜张4获得一等奖 跑车一辆<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>恭喜张5获得二等奖 华为手机一部<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>恭喜张6获得二等奖 华为手机一部<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>恭喜张7获得三等奖 小米手机一部<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>恭喜张8获得三等奖 小米手机一部<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>恭喜张9获得三等奖 小米手机一部<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><br><span class="javascript">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sroll</span>(<span class="hljs-params">id, delay = <span class="hljs-number">500</span></span>)</span>&#123;</span><br><span class="javascript">        <span class="hljs-keyword">if</span> (!id) &#123;</span><br><span class="javascript">            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&quot;选择器不存在&quot;</span>);</span><br>        &#125;<br><span class="javascript">        <span class="hljs-keyword">let</span> timer = <span class="hljs-literal">null</span>;</span><br><span class="javascript">        <span class="hljs-keyword">let</span> ele = <span class="hljs-built_in">document</span>.getElementById(id);</span><br><span class="javascript">        <span class="hljs-keyword">let</span> c = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="javascript">            <span class="hljs-comment">// if (timer) &#123;</span></span><br><span class="javascript">            <span class="hljs-comment">//     clearInterval(timer)</span></span><br><span class="javascript">            <span class="hljs-comment">// &#125;</span></span><br><span class="javascript">            ele.onmouseover = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="javascript">                <span class="hljs-built_in">clearInterval</span>(timer);</span><br>            &#125;<br><span class="javascript">            ele.onmouseout = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br>                c();<br>            &#125;<br>            /*<br>                scrollHeigh、只读、文档内容的实际高度，包括超出视窗的溢出部分<br>                scrollTop滚动条滚动距离<br>                clientHeight窗口可视范围高度，包含padding,但不包含border、水平滚动条、margin元素的高度<br><span class="javascript">                offsetHeight<span class="hljs-string">`只读`</span>是包含padding、border、水平滚动条，但不包括margin</span><br><br>            */    <br><br><span class="javascript">            <span class="hljs-keyword">if</span> (ele.scrollHeight &gt;= ele.offsetHeight) &#123;</span><br><span class="javascript">                timer = <span class="hljs-built_in">setInterval</span>(<span class="hljs-function">() =&gt;</span> &#123;</span><br><span class="javascript">                    <span class="hljs-keyword">if</span> (ele.scrollTop &gt;= ele.scrollHeight) &#123;</span><br>                        ele.scrollTop = 0;<br><span class="javascript">                    &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="javascript">                        <span class="hljs-keyword">if</span> (ele.scrollTop &gt;= ele.children[<span class="hljs-number">0</span>].offsetHeight) &#123;</span><br>                            ele.append(ele.children[0]);<br>                        &#125;<br>                        ele.scrollTop++;<br>                    &#125;<br>                &#125;, delay);<br>            &#125;<br>        &#125;<br><span class="javascript">            <span class="hljs-keyword">return</span> c;</span><br><br>    &#125;<br><span class="javascript">    <span class="hljs-keyword">let</span> callback = sroll(<span class="hljs-string">&#x27;demo&#x27;</span>)</span><br>    callback();<br><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h5 id="6、阻止事件冒泡"><a href="#6、阻止事件冒泡" class="headerlink" title="6、阻止事件冒泡"></a>6、阻止事件冒泡</h5><ul>
+<li>在W3C中，使用event.stopPropagation()方法</li>
+<li>在IE下设置event.cancelBubble = true;</li>
+</ul>
+<h5 id="7、使得p变得可编辑"><a href="#7、使得p变得可编辑" class="headerlink" title="7、使得p变得可编辑"></a>7、使得p变得可编辑</h5><p>可以使用<code>contenteditable = true</code>,</p>
+<p>如果还需要复制粘贴字段长度正常，可以把值修改成”plaintext-only”</p>
+<h5 id="8、readyState几个数字的含义"><a href="#8、readyState几个数字的含义" class="headerlink" title="8、readyState几个数字的含义"></a>8、readyState几个数字的含义</h5><table>
+<thead>
+<tr>
+<th>数字</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>代表未初始化，还没有调用open方法</td>
+</tr>
+<tr>
+<td>1</td>
+<td>代表正在加载。open方法已被调用，但send方法还没有被调用</td>
+</tr>
+<tr>
+<td>2</td>
+<td>代表方法已经加载完毕。send已被调用，请求已经开始，但当前的状态和http的请求头未知。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>代表交互中。服务器正在发送相应。已经接受到了部分数据，因为响应及http的头不全，这时通过responseBody和responseText获取部分数据会出现错误。</td>
+</tr>
+<tr>
+<td>4</td>
+<td>代表完成。响应发送完毕。</td>
+</tr>
+</tbody></table>
+
             </div>
             <hr>
             <div>
@@ -446,6 +482,12 @@
                 <div class="post-prevnext row">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2021/01/16/JS%E7%BB%A7%E6%89%BF%E8%AF%A6%E8%A7%A3/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">JS继承学习笔记</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">

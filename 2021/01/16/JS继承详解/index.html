@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="Measureds">
   <meta name="keywords" content="">
-  <title>学习日记 - 云深不知处</title>
+  <title>JS继承学习笔记 - 云深不知处</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="学习日记">
+            <span class="h2" id="subtitle" title="JS继承学习笔记">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-01-08 11:11" pubdate>
-        2021年1月8日 上午
+      <time datetime="2021-01-16 16:04" pubdate>
+        2021年1月16日 下午
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      15 字
+      856 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      10
        分钟
     </span>
   
@@ -224,14 +224,24 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">学习日记</h1>
+            <h1 style="display: none">JS继承学习笔记</h1>
             
             <div class="markdown-body">
-              <p>主要就面试中的一些问题进行修正</p>
+              <p>很多的OO语言都支持：接口继承和实现继承。接口继承只继承方法签名，而实现继承则继承实际的方法。由于函数没有签名，在ECMASript中只实现了实现继承，而且其实实现继承主要是依赖原型链来实现的。</p>
 <a id="more"></a>
 
+<h4 id="1、原型链"><a href="#1、原型链" class="headerlink" title="1、原型链"></a>1、原型链</h4><p>ECMAScript中描述了原型链的概念，并将原型链作为实现继承的主要方式。其主要思想是利用原型让一个引用类型继承另一个引用类型的属性和方法，简单回顾一下构造函数、原型和实例的关系：每一个构造函数都有一个原型对象，原型对象都包含一个指向一个构造函数的指针，而实例都包含一个指向原型对象的内部指针。假如我们让原型对象等于另一个类型的实例，那么此时原型对象将包含一个指向另一个原型的指针，相应地，另一个原型中也包含着一个指向另一个构造函数的指针。假如另一个原型又是另一个类型的实例，那么上述关系依然成立，如此层层递进，这样就形成了实例域原型的链条。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 实现原型链有一种基本模式</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">SuperType</span>(<span class="hljs-params"></span>)</span>&#123;<br>	<span class="hljs-built_in">this</span>.property = <span class="hljs-literal">true</span>;<br>&#125;<br><br>SuperType.prototype.getSuperValue = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<br>    	<span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.property;<br>&#125;;<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">SubType</span>(<span class="hljs-params"></span>)</span>&#123;<br>    <span class="hljs-built_in">this</span>.subproperty = <span class="hljs-literal">false</span>;<br>&#125;<br><br><span class="hljs-comment">//继承了Supertype,实现的本质是重写原型对象</span><br>SubType.prototype = <span class="hljs-keyword">new</span> SuberType();<br><br>SubType.prototype.getSubValue = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>&#123;<br>    	<span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.subproperty;<br>&#125;<br><br><span class="hljs-keyword">var</span> instance = <span class="hljs-keyword">new</span> SubType();<br>alert(instance.getSuperValue());	<span class="hljs-comment">//true</span><br></code></pre></td></tr></table></figure>
 
+<p>现在instance.constructor现在指向的是SuperType,这是因为原来SubType.prototype中的constructor被重写的缘故（实际上是subType的原型指向了另一个对象SuperType的原型，而原型对象的构造函数指向的是SuperType）。</p>
+<p>通过原型链，就扩展了原型搜索机制。当然所有的引用类型都继承自Object.</p>
+<p><code>注意：</code>需要谨慎地定义方法，子类型有时候需要覆盖超类型中的某个方法，或者需要添加超类型中不存在的某个方法。但不管怎样，<strong>给原型添加方法的代码一定要放在替换原型的语句之后</strong>。来看下面的例子</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">SuperType</span>(<span class="hljs-params"></span>)</span>&#123;<br>	<span class="hljs-built_in">this</span>.property = <span class="hljs-literal">true</span>;<br>&#125;<br><br>SuperType.prototype.getSuperValue = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.prototype;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">SubType</span>(<span class="hljs-params"></span>)</span>&#123;<br>    <span class="hljs-built_in">this</span>.subproperty = <span class="hljs-literal">false</span>;<br>&#125;<br><br><span class="hljs-comment">//继承了SubperType</span><br>SubType.prototype = <span class="hljs-keyword">new</span> SuperType();<br><br><span class="hljs-comment">//添加新方法</span><br>SubType.prototype.getSubValue = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.subproperty;<br>&#125;<br><br><span class="hljs-comment">//重写超类型中的方法</span><br>SubType.prototype.getSuperValue = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>&#125;<br><br><span class="hljs-keyword">var</span> instance = <span class="hljs-keyword">new</span> SubType();<br>alert(instance.getSuperValue()); <span class="hljs-comment">//false</span><br></code></pre></td></tr></table></figure>
 
+<p>同时<code>注意</code>在通过原型链实现继承时，不能使用对象字面量创建原型方法。因为这个方法会重写原型链。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">SuperType</span>(<span class="hljs-params"></span>)</span>&#123;<br>	<span class="hljs-built_in">this</span>.property = <span class="hljs-literal">true</span>;<br>&#125;<br><br>SuperType.prototype.getSuperValue = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.prototype;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">SubType</span>(<span class="hljs-params"></span>)</span>&#123;<br>    <span class="hljs-built_in">this</span>.subproperty = <span class="hljs-literal">false</span>;<br>&#125;<br><br><span class="hljs-comment">//继承了SubperType</span><br>SubType.prototype = <span class="hljs-keyword">new</span> SuperType();<br><br><span class="hljs-comment">//使用字面量添加新方法，会导致上一行代码无效</span><br>SubType.prototype = &#123;<br>    getSubValue : <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.subproperty;<br>    &#125;,<br>    someOtherMethod : <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>&#123;<br>        reutrn <span class="hljs-literal">false</span>;<br>    &#125;<br>&#125;;<br><br><span class="hljs-keyword">var</span> instance = <span class="hljs-keyword">new</span> SubType();<br>alert(insdtance.getSuperValue();) <span class="hljs-comment">//error!</span><br></code></pre></td></tr></table></figure>
+
+<p>以上代码展示了刚刚把SuperType的实例赋值给原型，紧接着又将原型替换成一个对象字面量而导致的问题。由于现在的原型包含的是一个Object的实例，而非SuperType的实例，因此我们设想中的原型链已经被切断——SuperType和SubType之间已经没有关系了。</p>
 
             </div>
             <hr>
@@ -241,7 +251,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/">学习日记</a>
+                      <a class="hover-with-bg" href="/categories/javascript/">javascript</a>
                     
                   </div>
                 
@@ -249,7 +259,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/">学习日记</a>
+                      <a class="hover-with-bg" href="/tags/javascript/">javascript</a>
                     
                   </div>
                 
@@ -262,9 +272,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/01/14/%E5%BF%AB%E6%89%8B%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/">
+                      <a href="/2021/01/19/%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">快手一面面试</span>
+                        <span class="hidden-mobile">map、reduce、filter等高阶函数</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -272,8 +282,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/01/06/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%E9%A2%98%E7%9B%AE%E8%AE%BE%E6%83%B3/">
-                        <span class="hidden-mobile">Salient Object Detection ： A Survey</span>
+                      <a href="/2021/01/14/%E5%B9%BF%E5%B7%9E4399%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/">
+                        <span class="hidden-mobile">广州4399一面面试</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
