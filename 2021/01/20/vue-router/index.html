@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      816 字
+      1.3k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10
+      15
        分钟
     </span>
   
@@ -293,6 +293,12 @@
 <li>触发 DOM 更新。</li>
 <li>调用 <code>beforeRouteEnter</code> 守卫中传给 <code>next</code> 的回调函数，创建好的组件实例会作为回调函数的参数传入。</li>
 </ol>
+<h3 id="4-vue-router模式"><a href="#4-vue-router模式" class="headerlink" title="4.vue-router模式"></a>4.vue-router模式</h3><h4 id="1、Hash模式："><a href="#1、Hash模式：" class="headerlink" title="1、Hash模式："></a>1、Hash模式：</h4><p><strong>vue-router 默认 hash 模式 —— 使用 URL 的 hash 来模拟一个完整的 URL，于是当 URL 改变时，页面不会重新加载。</strong> hash（#）是URL 的锚点，代表的是网页中的一个位置，单单改变#后的部分，浏览器只会滚动到相应位置，不会重新加载网页，也就是说 #是用来指导浏览器动作的，对服务器端完全无用，HTTP请求中也不会不包括#；同时每一次改变#后的部分，都会在浏览器的访问历史中增加一个记录，使用”后退”按钮，就可以回到上一个位置；所以说<strong>Hash模式通过锚点值的改变，根据不同的值，渲染指定DOM位置的不同数据</strong></p>
+<h4 id="2、History模式："><a href="#2、History模式：" class="headerlink" title="2、History模式："></a>2、History模式：</h4><p>由于hash模式会在url中自带#，如果不想要很丑的 hash，我们可以用路由的 history 模式，只需要在配置路由规则时，加入”mode: ‘history’”,这种模式充分利用 history.pushState API 来完成 URL 跳转而无须重新加载页面。</p>
+<p>当你使用 history 模式时，URL 就像正常的 url，例如 <a target="_blank" rel="noopener" href="http://yoursite.com/user/id%EF%BC%8C%E6%AF%94%E8%BE%83%E5%A5%BD%E7%9C%8B%EF%BC%81">http://yoursite.com/user/id，比较好看！</a><br>不过这种模式要玩好，还需要后台配置支持。因为我们的应用是个单页客户端应用，如果后台没有正确的配置，当用户在浏览器直接访问 <a target="_blank" rel="noopener" href="http://oursite.com/user/id">http://oursite.com/user/id</a> 就会返回 404，这就不好看了。<br>所以呢，<strong>你要在服务端增加一个覆盖所有情况的候选资源：如果 URL 匹配不到任何静态资源，则应该返回同一个 index.html 页面，这个页面就是你 app 依赖的页面。</strong></p>
+<h3 id="5、使用路由模块来实现页面跳转的方式"><a href="#5、使用路由模块来实现页面跳转的方式" class="headerlink" title="5、使用路由模块来实现页面跳转的方式"></a>5、使用路由模块来实现页面跳转的方式</h3><p>方式1：直接修改地址栏</p>
+<p>方式2：this.$router.push(‘路由地址’)</p>
+<p>方式3：<code>&lt;router-link to=&quot;路由地址&quot;&gt;&lt;/router-link&gt;</code></p>
 
             </div>
             <hr>
@@ -322,6 +328,12 @@
                 <div class="post-prevnext row">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2021/01/25/vue%E4%B8%8Ereact%E7%9A%84%E8%AF%A6%E7%BB%86%E5%AF%B9%E6%AF%94/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">leecode打卡本</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
