@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="Measureds">
   <meta name="keywords" content="">
-  <title>leecode打卡本 - 云深不知处</title>
+  <title>跨域问题 - 云深不知处</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="leecode打卡本">
+            <span class="h2" id="subtitle" title="跨域问题">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-01-25 07:57" pubdate>
-        2021年1月25日 早上
+      <time datetime="2021-01-28 19:45" pubdate>
+        2021年1月28日 晚上
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      0 字
+      1.2k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      13
        分钟
     </span>
   
@@ -224,10 +224,109 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">leecode打卡本</h1>
+            <h1 style="display: none">跨域问题</h1>
             
             <div class="markdown-body">
-              
+              <h2 id="CORS跨域问题"><a href="#CORS跨域问题" class="headerlink" title="CORS跨域问题"></a>CORS跨域问题</h2><a id="more"></a>
+
+<p>CORS跨域资源共享：跨域资源共享（CORS）是一种机制，它使用额外的HTTP头来告诉浏览器，让运行在一个与origin上的Web应用被准许访问来自不同源服务器上的指定的资源。当一个资源从与该资源本身所在的服务器不同的域或端口请求资源时，资源会发起一个跨域的HTTP的请求。应该算是现在比较推荐的跨域解决方案。</p>
+<ul>
+<li>现在浏览器将CORS的请求分成两类：<code>简单请求</code>和<code>非简单请求</code></li>
+</ul>
+<h3 id="1、简单请求"><a href="#1、简单请求" class="headerlink" title="1、简单请求"></a>1、简单请求</h3><table>
+<thead>
+<tr>
+<th>请求方式</th>
+<th>HTTP的头信息不超过字段</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>HEAD</td>
+<td>Accept（客户端希望接受的类型，text/xml就是xml的类型）</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>Accept-Language（浏览器支持的语言）</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>Content-Language（精确你的语言类型，Content-Type能知道是中文还是英文，但是不知道是繁体中文还是简体中文，英语不知道是英式还是美式，而且不写默认是按文件的语言传的，同理写给用德语的人，不代表写文件的人是使用德语的，可设置语言，权重）</td>
+</tr>
+<tr>
+<td></td>
+<td>Content-Type（application/x-www-form-urlencoded（表单默认提交的数据）、mulitipart/form-data（需要在表单中进行上传文件提交的格式）、text/plain（纯文本））</td>
+</tr>
+</tbody></table>
+<p>非简单请求会发出一次预检测请求，返回码是204，预检测通过才会真正发出请求，这才返回200。这里通过前端发请求的时候增加一个额外的headers来触发非简单请求。</p>
+<ul>
+<li><p>进行带有身份凭证的CORS请求</p>
+<ul>
+<li>默认情况下的跨域请求都是不会把cookie发送给服务器的，在需要发送的情况下，如果是xhr,那么需要设置xhr.withCredentials=true</li>
+<li>如果是采用fetch获取的话，那么需要在request里面设置credential:’include’,</li>
+<li>但是如果服务器在预请求的时候没返回Access-Control-Allow-Crenditials:ture的话，那么在实际请求的时候，cookie是不会被发送给服务器端的，要特别注意对于简单的get请求，不会有预请求的过程</li>
+<li>那么在实际请求的时候，如果服务器没有返回Access-Control-Allow-Crenditial:true的话那么相应结果浏览器也不会交给请求者。</li>
+</ul>
+</li>
+<li><p>对于附带身份凭证的请求，服务器不得设置Access-Control-Allow-Origin的值为“<code>*</code>”。这是因为请求的首部中携带了Cookie信息，如果Access-Control-Allow-Origin的值为“<code>*</code>”,请求将会失败。而将Access-Cotrol-Allow-Origin的值设置为<code>http://www.a.com</code>,则请求将成功执行。</p>
+</li>
+<li><p>HTTP响应首部字段</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Access-Control-Allow-Origin</td>
+<td><code>&lt;origin&gt;</code>|*，如果要发送cookies就不能将这个设置成<code>*</code>,必须明确设置与请求网页一致的域名。</td>
+</tr>
+<tr>
+<td>Access-Control-Expose-Headers</td>
+<td>XMLhttpRequest对象的getResponseHeader()方法只能获取到6个基本字段（Cache-control、Content-Language、Content-Type、Expires、Last-Modfied、Pragma）如果想要拿到其他字段，就需要在这里指定，然后getResponseHeader(“字段名”)。</td>
+</tr>
+<tr>
+<td>Access-Control-Max-Age</td>
+<td>头指定了（预检）preflight请求的结果能够被缓存多久</td>
+</tr>
+<tr>
+<td>Access-Control-Allow-Credentials</td>
+<td>头指定了当浏览器的credentials设置为true时是否允许浏览器读取response的内容</td>
+</tr>
+<tr>
+<td>Access-Control-Allow-Methods</td>
+<td>首部字段用于预检请求的响应。其指明了实际请求所允许使用的HTTP方法。（GET/PUT/POST/DELETE）</td>
+</tr>
+<tr>
+<td>Access-Control-Allow-Headers</td>
+<td>首部字段用于预检请求的响应。其指明了实际请求中允许携带的首部字段(Content-Type)，如果浏览器的请求包含Access-Control-Request-Header，那么该字段则必须，表示服务器所支持的所有头信息字段。</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h3 id="2、非简单请求"><a href="#2、非简单请求" class="headerlink" title="2、非简单请求"></a>2、非简单请求</h3><p>非简单请求是那种对服务器有特殊要求的请求，比如请求方法是<code>PUT</code>或<code>DELETE</code>，或者<code>Content-Type</code>字段类型为<code>application/json</code>,非简单请求的CORS请求，会在正式通信之前，增加一次HTTP查询请求，称为预检请求。</p>
+<h5 id="预检请求包含的字段"><a href="#预检请求包含的字段" class="headerlink" title="预检请求包含的字段"></a>预检请求包含的字段</h5><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Orign</td>
+<td>表示请求来自哪个源</td>
+</tr>
+<tr>
+<td>Access-Control-Request-Method</td>
+<td>该字段必须，用来列出浏览器的CORS请求会用到哪些HTTP方法，上例是<code>PUT</code>.</td>
+</tr>
+<tr>
+<td>Access-Control-Request-Header</td>
+<td>该字段是一个逗号分割的字符串，指定浏览器CORS请求会额外的发送的头信息的字段</td>
+</tr>
+</tbody></table>
+<p>如果返还一个没有任何CORS相关的头信息字段，这时，浏览器就会认为，服务器不同意预检请求，然后发送一个错误，被XMLhttpRqueset对象的onerror捕获。</p>
+
             </div>
             <hr>
             <div>
@@ -236,7 +335,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+                      <a class="hover-with-bg" href="/categories/web%E5%89%8D%E7%AB%AF/">web前端</a>
                     
                   </div>
                 
@@ -244,7 +343,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+                      <a class="hover-with-bg" href="/tags/web%E5%89%8D%E7%AB%AF/">web前端</a>
                     
                   </div>
                 
@@ -257,18 +356,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/01/28/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">跨域问题</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/01/20/vue-router/">
-                        <span class="hidden-mobile">vue-router</span>
+                      <a href="/2021/01/25/vue%E4%B8%8Ereact%E7%9A%84%E8%AF%A6%E7%BB%86%E5%AF%B9%E6%AF%94/">
+                        <span class="hidden-mobile">leecode打卡本</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
