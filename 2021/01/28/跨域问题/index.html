@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.2k 字
+      1.3k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      13
+      14
        分钟
     </span>
   
@@ -326,6 +326,15 @@
 </tr>
 </tbody></table>
 <p>如果返还一个没有任何CORS相关的头信息字段，这时，浏览器就会认为，服务器不同意预检请求，然后发送一个错误，被XMLhttpRqueset对象的onerror捕获。</p>
+<h3 id="3、如何取消ajax请求"><a href="#3、如何取消ajax请求" class="headerlink" title="3、如何取消ajax请求"></a>3、如何取消ajax请求</h3><ul>
+<li>对于原生XHR对象来说，取消ajax的关键是调用XHR对象的.abort()方法</li>
+<li>axios去发送请求的话，</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> CancelToken = axios.CancelToken;<br><span class="hljs-keyword">var</span> source = CancelToken.source();<br><br>axios(&#123;<br>	method:<span class="hljs-string">&quot;GET&quot;</span>,<br>	url:<span class="hljs-string">&quot;https:api.github.com&quot;</span>,<br>	cancelToken:source.token<br>	<span class="hljs-comment">//cancelToken的值起表示作用，标识由source控制的，将要被取消的ajax操作</span><br>&#125;)<br><br>source.cancel(<span class="hljs-string">&#x27;message&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>用fetch，有<code>var controller = new AbortControll()</code>，可以<code>controller.abort()</code></li>
+</ul>
 
             </div>
             <hr>
