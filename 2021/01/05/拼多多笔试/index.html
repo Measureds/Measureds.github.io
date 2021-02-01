@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.9k 字
+      3.7k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      26
+      48
        分钟
     </span>
   
@@ -345,7 +345,142 @@
 <p>多数支持DOM事件流的浏览器都实现了一种特定的行为；即使“DOM2级事件”规范种明确要求捕获阶段不会涉及事件目标，但IE9、Safari、Chrome、Firefox、Opera9.5及更高版本都会在捕获阶段触发事件对象上的事件。结果，就是有两个机会在目标对象上面操作事件。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">element.addEventLister(<span class="hljs-string">&quot;click&quot;</span>,func()=&#123;&#125;,fasle) <span class="hljs-comment">//false表示在冒泡阶段来执行。</span><br></code></pre></td></tr></table></figure>
 
-<h5 id="10、"><a href="#10、" class="headerlink" title="10、"></a>10、</h5>
+<h5 id="10、回流和重绘"><a href="#10、回流和重绘" class="headerlink" title="10、回流和重绘"></a>10、回流和重绘</h5><p>队列化修改并批量执行来优化重排过程。浏览器会将修改操作放入到队列里，直到过了一段时间或者操作达到了一个阈值，才清空队列。但是！<strong>当你获取布局信息的操作的时候，会强制队列刷新</strong>，比如当你访问以下属性或者使用以下方法：</p>
+<ul>
+<li>offsetTop、offsetLeft、offsetWidth、offsetHeight</li>
+<li>scrollTop、scrollLeft、scrollWidth、scrollHeight</li>
+<li>clientTop、clientLeft、clientWidth、clientHeight</li>
+<li>getComputedStyle()</li>
+<li>getBoundingClientRect</li>
+<li>具体可以访问这个网站：<a target="_blank" rel="noopener" href="https://gist.github.com/paulirish/5d52fb081b3570c81e3a">gist.github.com/paulirish/5…</a></li>
+</ul>
+<p>以上属性和方法都需要返回最新的布局信息，因此浏览器不得不清空队列，触发回流重绘来返回正确的值。因此，我们在修改样式的时候，<strong>最好避免使用上面列出的属性，他们都会刷新渲染队列。</strong>如果要使用它们，最好将值缓存起来。</p>
+<p>原文链接：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903734951018504">https://juejin.cn/post/6844903734951018504</a></p>
+<h5 id="11、强缓存和协商缓存"><a href="#11、强缓存和协商缓存" class="headerlink" title="11、强缓存和协商缓存"></a>11、强缓存和协商缓存</h5><p>相关的header字段</p>
+<ul>
+<li><p>expires:一个未来时间，代表请求有效期，没有过期之前都使用当前请求。</p>
+</li>
+<li><p>Pragma:Pragma是旧产物，已经逐渐抛弃，有些网站为了向下兼容，还保留了这两个字段。如果报文中同时出现Pragma和Cache-Control时，以Pragma为准。同时出现Cache-Control和Expires时，以Cache-Control为准。（优先级：Pragma-&gt;Cache-Control-&gt;Expires）</p>
+</li>
+<li><p>cache-control：</p>
+<ul>
+<li>请求时候的Cache-Control时</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>字段名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>no-cache</td>
+<td>告知（代理）服务器不直接使用缓存，要求向原服务器发起请求</td>
+</tr>
+<tr>
+<td>no-store</td>
+<td>所有内容都不会被保存到缓存或者Internet临时文件中</td>
+</tr>
+<tr>
+<td>max-age=delta-seconds</td>
+<td>告知服务器客户端希望接收一个缓存时间（Age）不大于delta-seconds秒的资源，若没有则为任意超出的时间。</td>
+</tr>
+<tr>
+<td>max-stale [=delta-seconds]</td>
+<td>告知代理服务器客户端愿意接收一个超过缓存时间的资源，若有定义delta-seconds则为delta-seconds秒，若没有则为任意超出的时间。</td>
+</tr>
+<tr>
+<td>no-transform</td>
+<td>告知（代理服务器客户端希望获取实体数据没有被转换（比如压缩）过的资源）</td>
+</tr>
+<tr>
+<td>only-if-cached</td>
+<td>告知（代理）服务器客户端希望获取缓存的内容（若有），而不用向原服务器去发请求</td>
+</tr>
+<tr>
+<td>min-fresh=delta-seconds</td>
+<td>告知（代理）服务器客户端希望接收一个在小于delta-seconds内被更新过的资源</td>
+</tr>
+<tr>
+<td>cache-extension</td>
+<td>自定义扩展值，若服务器不识别该值将被忽略掉</td>
+</tr>
+</tbody></table>
+<ul>
+<li>响应时候的Cache-Control时</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>字段名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>public</td>
+<td>表明任何情况下都得缓存该资源（即使是需要HTTP认证的资源）</td>
+</tr>
+<tr>
+<td>private [=”field-name”]</td>
+<td>表明返回报文中全部或部分（若指定了field-name则为field-name的字段数据）仅开放给某些用户（服务器指定的share-user，如代理服务器）做缓存使用，其他用户则不能缓存这些数据</td>
+</tr>
+<tr>
+<td>no-cache</td>
+<td>不直接使用缓存，要求向服务器发起（新鲜度校验）请求</td>
+</tr>
+<tr>
+<td>no-store</td>
+<td>所有内容都不会被保存到缓存或Internet临时文件中</td>
+</tr>
+<tr>
+<td>no-transform</td>
+<td>告知客户端缓存文件时不得对实体数据做任何改变</td>
+</tr>
+<tr>
+<td>only-if-cached</td>
+<td>告知（代理）服务器客户端希望获取缓存的内容（若有），则不用向原服务器发去请求</td>
+</tr>
+<tr>
+<td>must-revalidate</td>
+<td>当前资源一定是向原服务器发去验证请求的，若请求失败会返回504（而非代理服务器上的缓存）</td>
+</tr>
+<tr>
+<td>proxy-revalidate</td>
+<td>与must-revalidate类似，但仅能应用于共享缓存（如代理）</td>
+</tr>
+<tr>
+<td>max-age=delta-seconds</td>
+<td>告知客户端资源在delta-secondsm秒内是新鲜的，无需向服务器发送请求</td>
+</tr>
+<tr>
+<td>s-maxage=delta-seconds</td>
+<td>同max-age，但仅应用于共享缓存（如代理）</td>
+</tr>
+<tr>
+<td>cache-extension</td>
+<td>自定义扩展值，若服务器不识别该值将被忽略掉</td>
+</tr>
+</tbody></table>
+<p>可以多个值组合，但是no-store的优先级最高，本地不保存，每次都需要服务器发送资源。</p>
+<p>public和private的选择。如果你使用了CDN，你需要关注一下这个值。CDN厂家一般会要求cache-control的值为public,提升缓存命中率。如果你的缓存命中率很低，而访问量很大的话，可以看下是不是设置了private，no-cache这类的值。如果定义了max-age,可以不用再定义public，他们的意义是一样的。</p>
+</li>
+<li><p>Last-Modified</p>
+<p>在缓存中，我们需要一个机制来验证缓存是否有效。比如服务器的资源更新了，客户端要及时更新缓存；又或者客户端的资源过了有效期，但服务器上的资源还是旧的，此时并不需要重新发送。缓存校验就是用来解决这些问题的，在http1.1中，我们主要关注下Last-Modified和etag这两个字段。</p>
+<p>服务端在返回资源时，会将该资源的最后更改时间通过<code>Last-Modified</code>字段返回给客户端。客户端下次请求时通过<code>If-Modified-Since</code>或者<code>If-Unmodified-Since</code>带上<code>Last-Modified</code>,服务端检测该时间是否与服务器的最后修改时间一致：如果一致，则返回<code>304状态码</code>，不返回资源；如果不一致则返回<code>200和修改后的资源</code>，并带上新的时间.</p>
+</li>
+<li><p>If-Modified-Since和If-Unmodified-Since的区别是：<br><strong>If-Modified-Since</strong>：告诉服务器如果时间一致，返回状态码304<br><strong>If-Unmodified-Since</strong>：告诉服务器如果时间不一致，返回状态码412</p>
+</li>
+<li><p>etag</p>
+<p>单纯的以修改时间来判断还是有缺陷,比如文件的最后修改时间变了,但内容没变.对于这样的情况,我们可以使用etag来处理.</p>
+<p>etag的方式是这样的:服务器通过某个算法对资源进行计算,取得一串值(类似于文件的md5值),之后将该值通过etag返回给客户端,客户端下次请求时通过<code>If-None-Match</code>或者<code>if-Match</code>带上该值,服务器对该值进行对比校验:如果一致则不要返回资源.</p>
+</li>
+<li><p>If-None-Match和If-Match的区别是：<br><strong>If-None-Match</strong>：告诉服务器如果一致，返回状态码304，不一致则返回资源<br><strong>If-Match</strong>：告诉服务器如果不一致，返回状态码412</p>
+</li>
+</ul>
+<p>参考链接:<a target="_blank" rel="noopener" href="https://blog.csdn.net/u012375924/article/details/82806617">https://blog.csdn.net/u012375924/article/details/82806617</a></p>
+<h5 id="12、手写订阅发布者模式"><a href="#12、手写订阅发布者模式" class="headerlink" title="12、手写订阅发布者模式"></a>12、手写订阅发布者模式</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 手写发布订阅模式 EventEmitter</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EventEmitter</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-title">constructor</span>(<span class="hljs-params"></span>)</span> &#123;<br>      <span class="hljs-built_in">this</span>.events = &#123;&#125;;<br>    &#125;<br>    <span class="hljs-comment">// 实现订阅</span><br>    <span class="hljs-function"><span class="hljs-title">on</span>(<span class="hljs-params">type, callBack</span>)</span> &#123;<br>      <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">this</span>.events) <span class="hljs-built_in">this</span>.events = <span class="hljs-built_in">Object</span>.create(<span class="hljs-literal">null</span>);<br><br>      <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">this</span>.events[type]) &#123;<br>        <span class="hljs-built_in">this</span>.events[type] = [callBack];<br>      &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-built_in">this</span>.events[type].push(callBack);<br>      &#125;<br>    &#125;<br>    <span class="hljs-comment">// 删除订阅</span><br>    <span class="hljs-function"><span class="hljs-title">off</span>(<span class="hljs-params">type, callBack</span>)</span> &#123;<br>      <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">this</span>.events[type]) <span class="hljs-keyword">return</span>;<br>      <span class="hljs-built_in">this</span>.events[type] = <span class="hljs-built_in">this</span>.events[type].filter(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> &#123;<br>        <span class="hljs-keyword">return</span> item !== callBack;<br>      &#125;);<br>    &#125;<br>    <span class="hljs-comment">// 只执行一次订阅事件</span><br>    <span class="hljs-function"><span class="hljs-title">once</span>(<span class="hljs-params">type, callBack</span>)</span> &#123;<br>      <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fn</span>(<span class="hljs-params"></span>) </span>&#123;<br>        callBack();<br>        <span class="hljs-built_in">this</span>.off(type, fn);<br>      &#125;<br>      <span class="hljs-built_in">this</span>.on(type, fn);<br>    &#125;<br>    <span class="hljs-comment">// 触发事件</span><br>    <span class="hljs-function"><span class="hljs-title">emit</span>(<span class="hljs-params">type, ...rest</span>)</span> &#123;<br>      <span class="hljs-built_in">this</span>.events[type] &amp;&amp;<br>        <span class="hljs-built_in">this</span>.events[type].forEach(<span class="hljs-function"><span class="hljs-params">fn</span> =&gt;</span> fn.apply(<span class="hljs-built_in">this</span>, rest));<br>    &#125;<br>  &#125;<br><span class="hljs-comment">// 使用如下</span><br>  <span class="hljs-keyword">const</span> event = <span class="hljs-keyword">new</span> EventEmitter();<br><br>  <span class="hljs-keyword">const</span> handle = <span class="hljs-function">(<span class="hljs-params">...rest</span>) =&gt;</span> &#123;<br>    <span class="hljs-built_in">console</span>.log(rest);<br>  &#125;;<br><br>  event.on(<span class="hljs-string">&quot;click&quot;</span>, handle);<br><br>  event.emit(<span class="hljs-string">&quot;click&quot;</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>);<br><br>  event.off(<span class="hljs-string">&quot;click&quot;</span>, handle);<br><br>  event.emit(<span class="hljs-string">&quot;click&quot;</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>);<br><br>  event.once(<span class="hljs-string">&quot;dbClick&quot;</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">123456</span>);<br>  &#125;);<br>  event.emit(<span class="hljs-string">&quot;dbClick&quot;</span>);<br>  event.emit(<span class="hljs-string">&quot;dbClick&quot;</span>);<br></code></pre></td></tr></table></figure>
+
+
             </div>
             <hr>
             <div>
