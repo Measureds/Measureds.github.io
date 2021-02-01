@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      5.5k 字
+      6.3k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      57
+      67
        分钟
     </span>
   
@@ -317,6 +317,96 @@
 <li><p>SQL语句注入</p>
 </li>
 <li><p>跨站请求伪造（CSRF攻击）</p>
+<p>防范措施：</p>
+<p>Token，就是令牌，最大的特点就是随机性，不可预测。一般黑客或软件无法猜测出来。</p>
+<p>那么，Token有什么作用？又是什么原理呢？</p>
+<p>Token一般用在两个地方:</p>
+<ul>
+<li>1)防止表单重复提交、</li>
+<li>2)anti csrf攻击（跨站点请求伪造）。</li>
+</ul>
+<p>两者在原理上都是通过session token来实现的。当客户端请求页面时，服务器会生成一个随机数Token，并且将Token放置到session当中，然后将Token发给客户端（一般通过构造hidden表单）。下次客户端提交请求时，Token会随着表单一起提交到服务器端。<br>然后，如果应用于“anti csrf攻击”，则服务器端会对Token值进行验证，判断是否和session中的Token值相等，若相等，则可以证明请求有效，不是伪造的。<br>不过，如果应用于“防止表单重复提交”，服务器端第一次验证相同过后，会将session中的Token值更新下，若用户重复提交，第二次的验证判断将失败，因为用户提交的表单中的Token没变，但服务器端session中Token已经改变了。</p>
+<h2 id="SameSite-属性"><a href="#SameSite-属性" class="headerlink" title="SameSite 属性"></a>SameSite 属性</h2><p>Cookie 的<code>SameSite</code>属性用来限制第三方 Cookie，从而减少安全风险。</p>
+<p>它可以设置三个值。</p>
+<blockquote>
+<ul>
+<li>Strict</li>
+<li>Lax</li>
+<li>None</li>
+</ul>
+</blockquote>
+<h3 id="2-1-Strict"><a href="#2-1-Strict" class="headerlink" title="2.1 Strict"></a>2.1 Strict</h3><p><code>Strict</code>最为严格，完全禁止第三方 Cookie，跨站点时，任何情况下都不会发送 Cookie。换言之，只有当前网页的 URL 与请求目标一致，才会带上 Cookie。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">Set-Cookie: CookieName=CookieValue; SameSite=Strict;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<p>这个规则过于严格，可能造成非常不好的用户体验。比如，当前网页有一个 GitHub 链接，用户点击跳转就不会带有 GitHub 的 Cookie，跳转过去总是未登陆状态。</p>
+<h3 id="2-2-Lax"><a href="#2-2-Lax" class="headerlink" title="2.2 Lax"></a>2.2 Lax</h3><p><code>Lax</code>规则稍稍放宽，大多数情况也是不发送第三方 Cookie，但是导航到目标网址的 Get 请求除外。</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markup">Set-Cookie: CookieName&#x3D;CookieValue; SameSite&#x3D;Lax;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<p>导航到目标网址的 GET 请求，只包括三种情况：链接，预加载请求，GET 表单。详见下表。</p>
+<table>
+<thead>
+<tr>
+<th align="left">请求类型</th>
+<th align="center">示例</th>
+<th align="right">正常情况</th>
+<th align="left">Lax</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">链接</td>
+<td align="center"><code>&lt;a href=&quot;...&quot;&gt;&lt;/a&gt;</code></td>
+<td align="right">发送 Cookie</td>
+<td align="left">发送 Cookie</td>
+</tr>
+<tr>
+<td align="left">预加载</td>
+<td align="center"><code>&lt;link rel=&quot;prerender&quot; href=&quot;...&quot;/&gt;</code></td>
+<td align="right">发送 Cookie</td>
+<td align="left">发送 Cookie</td>
+</tr>
+<tr>
+<td align="left">GET 表单</td>
+<td align="center"><code>&lt;form method=&quot;GET&quot; action=&quot;...&quot;&gt;</code></td>
+<td align="right">发送 Cookie</td>
+<td align="left">发送 Cookie</td>
+</tr>
+<tr>
+<td align="left">POST 表单</td>
+<td align="center"><code>&lt;form method=&quot;POST&quot; action=&quot;...&quot;&gt;</code></td>
+<td align="right">发送 Cookie</td>
+<td align="left">不发送</td>
+</tr>
+<tr>
+<td align="left">iframe</td>
+<td align="center"><code>&lt;iframe src=&quot;...&quot;&gt;&lt;/iframe&gt;</code></td>
+<td align="right">发送 Cookie</td>
+<td align="left">不发送</td>
+</tr>
+<tr>
+<td align="left">AJAX</td>
+<td align="center"><code>$.get(&quot;...&quot;)</code></td>
+<td align="right">发送 Cookie</td>
+<td align="left">不发送</td>
+</tr>
+<tr>
+<td align="left">Image</td>
+<td align="center"><code>&lt;img src=&quot;...&quot;&gt;</code></td>
+<td align="right">发送 Cookie</td>
+<td align="left">不发送</td>
+</tr>
+</tbody></table>
+<p>设置了<code>Strict</code>或<code>Lax</code>以后，基本就杜绝了 CSRF 攻击。当然，前提是用户浏览器支持 SameSite 属性。</p>
+<h3 id="2-3-None"><a href="#2-3-None" class="headerlink" title="2.3 None"></a>2.3 None</h3><p>Chrome 计划将<code>Lax</code>变为默认设置。这时，网站可以选择显式关闭<code>SameSite</code>属性，将其设为<code>None</code>。不过，前提是必须同时设置<code>Secure</code>属性（Cookie 只能通过 HTTPS 协议发送），否则无效。</p>
+<p>下面的设置无效。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">Set-Cookie: widget_session=abc123; SameSite=None<br></code></pre></td></tr></table></figure>
+</blockquote>
+<p>下面的设置有效。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">Set-Cookie: widget_session=abc123; SameSite=None; Secure<br></code></pre></td></tr></table></figure>
+</blockquote>
 </li>
 <li><p>文件上传</p>
 <p>xss参考链接：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/for-easy-fast/articles/12956062.html">https://www.cnblogs.com/for-easy-fast/articles/12956062.html</a></p>
