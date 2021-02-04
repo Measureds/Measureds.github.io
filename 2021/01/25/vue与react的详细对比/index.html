@@ -246,7 +246,7 @@
 </ul>
 <h2 id="设计思想"><a href="#设计思想" class="headerlink" title="设计思想"></a>设计思想</h2><h3 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h3><p>vue的官网中说它是一款渐进式框架，采用自底向上增量开发的设计。这里我们需要明确一个概念，什么是渐进式框架。在声明式渲染（视图模板引擎）的基础上，我们可以通过添加组件系统（components）、客户端路由（vue-router）、大规模状态管理（vuex）来构建一个完整的框架。Vue从设计角度来讲，<strong>虽然能够涵盖所有这些内容，但是你并不需要一上手就把所有东西全用上</strong>，因为没有必要。无论从学习角度，还是实际情况，这都是可选的。声明式渲染和组建系统是Vue的核心库所包含内容，而客户端路由、状态管理、构建工具都有专门解决方案。这些解决方案相互独立，你可以在核心的基础上任意选用其他的部件，不一定要全部整合在一起。可以看到，所说的“渐进式”，其实就是Vue的使用方式，同时也体现了Vue的设计的理念。</p>
 <h3 id="react"><a href="#react" class="headerlink" title="react"></a>react</h3><p>react主张函数式编程，所以推崇纯组件，数据不可变，单向数据流，当然需要双向的地方也可以手动实现，比如借助 onChange 和  setState 来实现一个双向的数据流。而vue是基于可变数据的，支持双向绑定，它提供了v-model这样的指令来实现文本框的数据流双向绑定。</p>
-<h2 id="编写语法"><a href="#编写语法" class="headerlink" title="编写语法"></a>编写语法</h2><h3 id="vue-1"><a href="#vue-1" class="headerlink" title="vue"></a>vue</h3><p>vue推荐的做法是webpack+vue-loader的单文件组件格式，vue保留了html、css、js分离的写法，使得现有的前端开发者在开发的时候能保持原有的习惯，更接近常用的web开发方式，模板就是普通的html，数据绑定使用mustache风格，样式直接使用css。其中<style>标签还提供了一个可选的scoped属性，它会为组件内  CSS 指定作用域，用它来控制仅对当前组件有效还是全局生效。</p>
+<h2 id="编写语法"><a href="#编写语法" class="headerlink" title="编写语法"></a>编写语法</h2><h3 id="vue-1"><a href="#vue-1" class="headerlink" title="vue"></a>vue</h3><p>vue推荐的做法是webpack+vue-loader的单文件组件格式，vue保留了html、css、js分离的写法，使得现有的前端开发者在开发的时候能保持原有的习惯，更接近常用的web开发方式，模板就是普通的html，数据绑定使用mustache风格，样式直接使用css。其中<code>&lt;style&gt;</code>标签还提供了一个可选的scoped属性，它会为组件内  CSS 指定作用域，用它来控制仅对当前组件有效还是全局生效。</p>
 <p>模板和JSX是各有利弊的东西。模板更贴近我们的HTML，可以让我们更直观地思考语义结构，更好地结合CSS的书写。</p>
 <p>同时vue也支持JSX语法，因为是真正的JavaScript，拥有这个语言本身的所有的能力，可以进行复杂的逻辑判断，进行选择性的返回最终要返回的DOM结构，能够实现一些在模板的语法限制下，很难做到的一些事情。</p>
 <h3 id="react-1"><a href="#react-1" class="headerlink" title="react"></a>react</h3><p>用过react的开发者可能知道，react是没有模板的，直接就是一个渲染函数，它中间返回的就是一个虚拟DOM树，React推荐的做法是  JSX + inline style, 也就是把HTML和CSS全都写进JavaScript了,即’all in  js’。JSX实际就是一套使用XML语法，用于让我们更简单地去描述树状结构的语法糖。在react中，所有的组件的渲染功能都依靠JSX。你可以在render()中编写类似XML的语法，它最终会被编译成原生JavaScript。不仅仅是  HTML 可以用 JSX 来表达，现在的潮流也越来越多地将 CSS 也纳入到 JavaScript 中来处理。JSX是基于 JS  之上的一套额外语法，学习使用起来有一定的成本。</p>
@@ -346,7 +346,7 @@
 <p>切换路由的时候，组件就会被销毁了，销毁之前执行beforeDestroy。在这个钩子函数里面，我们可以做一些善后的操作，例如可以清空一下全局的定时器（created钩子函数绑定的初始化阶段的事件）、清除事件绑定。</p>
 <p>（8）destoryed</p>
 <p>组件销毁后执行destroyed，销毁后组件的双向数据绑定、事件监听watcher相关的都被移除掉了，但是组件的真实dom结构还是存在在页面中的。</p>
-<p><strong>添加keep-alive标签后会增加active和deactive这两个生命周期函数，初始化操作放在actived里面，一旦切换组件，因为组件没有被销毁，所以它不会执行销毁阶段的钩子函数，所以移除操作需要放在deactived里面，在里面进行一些善后操作，这个时候created钩子函数只会执行一次，销毁的钩子函数一直没有执行。</strong><img src="https://pic4.zhimg.com/80/v2-b08adbc25abbc3201960fb9b97411a9f_720w.jpg?source=1940ef5c" srcset="/img/loading.gif" alt="img"></p>
+<p><strong>添加keep-alive标签后会增加active和deactive这两个生命周期函数，初始化操作放在actived里面，一旦切换组件，因为组件没有被销毁，所以它不会执行销毁阶段的钩子函数，所以移除操作需要放在deactived里面，在里面进行一些善后操作，这个时候created钩子函数只会执行一次，销毁的钩子函数一直没有执行。</strong></p>
 <h3 id="react-9"><a href="#react-9" class="headerlink" title="react"></a>react</h3><p>【初始化阶段（5个）】：</p>
 <p>（1）getDefaultProps：实例化组件之后，组件的getDefaultProps钩子函数会执行</p>
 <p>这个钩子函数的目的是为组件的实例挂载默认的属性</p>
