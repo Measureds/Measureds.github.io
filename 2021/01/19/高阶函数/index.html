@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      730 字
+      803 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10
+      11
        分钟
     </span>
   
@@ -263,6 +263,8 @@
 
 <p>同时还有一个flatMap方法，相当于对原数组每个元素执行一次map，再拉平</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//日常手写一遍</span><br><span class="hljs-built_in">Array</span>.prototype.myflat = <span class="hljs-function"><span class="hljs-title">fucntion</span>(<span class="hljs-params">d=<span class="hljs-number">1</span></span>)</span>&#123;<br>	<span class="hljs-keyword">let</span> arr = <span class="hljs-built_in">this</span><br>	<span class="hljs-keyword">return</span> d&gt;<span class="hljs-number">0</span>?reduce(<span class="hljs-function">(<span class="hljs-params">acc,cur</span>) =&gt;</span> &#123;<br>		acc.concat(<span class="hljs-built_in">Array</span>.isArray(val)?val.myflat(d-<span class="hljs-number">1</span>):val)<br>	&#125;,[]):arr.slice()<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h5 id="6、手写instanceof"><a href="#6、手写instanceof" class="headerlink" title="6、手写instanceof"></a>6、手写instanceof</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">instance_of</span>(<span class="hljs-params">L, R</span>) </span>&#123;<br>    <span class="hljs-keyword">const</span> baseType = [<span class="hljs-string">&#x27;string&#x27;</span>, <span class="hljs-string">&#x27;number&#x27;</span>, <span class="hljs-string">&#x27;boolean&#x27;</span>, <span class="hljs-string">&#x27;undefined&#x27;</span>, <span class="hljs-string">&#x27;symbol&#x27;</span>]<br>    <span class="hljs-keyword">if</span> (baseType.includes(<span class="hljs-keyword">typeof</span> (L))) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    &#125;<br>    <span class="hljs-keyword">let</span> RP = R.prototype;<br>    L = L.__proto__;<br>    <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) &#123;<br>        <span class="hljs-keyword">if</span> (L === <span class="hljs-literal">null</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>        &#125;<br>        <span class="hljs-keyword">if</span> (L === RP) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>        &#125;<br>        L = L.__proto__;<br>    &#125;<br>&#125;<br><span class="hljs-built_in">console</span>.log(instance_of(<span class="hljs-built_in">Array</span>, <span class="hljs-built_in">Object</span>))<br><span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">Array</span> <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Object</span>)<br></code></pre></td></tr></table></figure>
 
 
             </div>
