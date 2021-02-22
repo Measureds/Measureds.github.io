@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="Measureds">
   <meta name="keywords" content="">
-  <title>webpack - 云深不知处</title>
+  <title>正则表达式 - 云深不知处</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="webpack">
+            <span class="h2" id="subtitle" title="正则表达式">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-02-02 11:07" pubdate>
-        2021年2月2日 上午
+      <time datetime="2021-02-22 09:05" pubdate>
+        2021年2月22日 上午
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.4k 字
+      588 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      15
+      7
        分钟
     </span>
   
@@ -224,52 +224,112 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">webpack</h1>
+            <h1 style="display: none">正则表达式</h1>
             
             <div class="markdown-body">
-              <h5 id="1、有哪些常见的Loader？他们是解决什么问题的？"><a href="#1、有哪些常见的Loader？他们是解决什么问题的？" class="headerlink" title="1、有哪些常见的Loader？他们是解决什么问题的？"></a>1、有哪些常见的Loader？他们是解决什么问题的？</h5><ul>
-<li>file-loader：把文件输出到一个文件夹中，在代码中通过相对 URL 去引用输出的文件</li>
-<li>url-loader：和 file-loader 类似，但是能在文件很小的情况下以 base64 的方式把文件内容注入到代码中去</li>
-<li>source-map-loader：加载额外的 Source Map 文件，以方便断点调试</li>
-<li>image-loader：加载并且压缩图片文件</li>
-<li>babel-loader：把 ES6 转换成 ES5</li>
-<li>css-loader：加载 CSS，支持模块化、压缩、文件导入等特性</li>
-<li>style-loader：把 CSS 代码注入到 JavaScript 中，通过 DOM 操作去加载 CSS。</li>
-<li>eslint-loader：通过 ESLint 检查 JavaScript 代码</li>
-</ul>
-<h5 id="2、有哪些常见的Plugin？他们是解决什么问题的？"><a href="#2、有哪些常见的Plugin？他们是解决什么问题的？" class="headerlink" title="2、有哪些常见的Plugin？他们是解决什么问题的？"></a>2、有哪些常见的Plugin？他们是解决什么问题的？</h5><ul>
-<li>define-plugin：定义环境变量</li>
-<li>commons-chunk-plugin：提取公共代码</li>
-<li>uglifyjs-webpack-plugin：通过UglifyES压缩ES6代码</li>
-</ul>
-<h5 id="3、Loader和Plugin的不同？"><a href="#3、Loader和Plugin的不同？" class="headerlink" title="3、Loader和Plugin的不同？"></a>3、Loader和Plugin的不同？</h5><p><strong>不同的作用</strong></p>
+              <p>正则表达式</p>
+<a id="more"></a>
+
+<p>正则表达式通常用的两个字符串方法：search()和replace()</p>
 <ul>
-<li><strong>Loader</strong>直译为”加载器”。Webpack将一切文件视为模块，但是webpack原生是只能解析js文件，如果想将其他文件也打包的话，就会用到loader。 所以Loader的作用是让webpack拥有了加载和解析非JavaScript文件的能力。</li>
-<li><strong>Plugin</strong>直译为”插件”。Plugin可以扩展webpack的功能，让webpack具有更多的灵活性。 在 Webpack 运行的生命周期中会广播出许多事件，Plugin 可以监听这些事件，在合适的时机通过 Webpack 提供的 API 改变输出结果。</li>
+<li><p>search():用于检索字符串中指定的子字符串，或检索与正则表达式相匹配的子字符串，并返回<code>子字符串的起始位置</code>。</p>
+</li>
+<li><p>replace():用于在字符串中用一些字符替换另一些字符，或替换一个正则表达式匹配的子串</p>
+<p>replace(‘正则’，‘替换到的字符串’)</p>
+</li>
 </ul>
-<p><strong>不同的用法</strong></p>
-<ul>
-<li><strong>Loader</strong>在module.rules中配置，也就是说他作为模块的解析规则而存在。 类型为数组，每一项都是一个Object，里面描述了对于什么类型的文件（test），使用什么加载(loader)和使用的参数（options）</li>
-<li><strong>Plugin</strong>在plugins中单独配置。 类型为数组，每一项是一个plugin的实例，参数都通过构造函数传入</li>
-</ul>
-<h5 id="4、如何利用webpack来优化前端性能？（提高性能和体验）"><a href="#4、如何利用webpack来优化前端性能？（提高性能和体验）" class="headerlink" title="4、如何利用webpack来优化前端性能？（提高性能和体验）"></a>4、如何利用webpack来优化前端性能？（提高性能和体验）</h5><p>用webpack优化前端性能是指优化webpack的输出结果，让打包的最终结果在浏览器运行快速高效。</p>
-<ul>
-<li>压缩代码。删除多余的代码、注释、简化代码的写法等等方式。可以利用webpack的UglifyJsPlugin和ParallelUglifyPlugin来压缩JS文件， 利用cssnano（css-loader?minimize）来压缩css</li>
-<li>利用<a target="_blank" rel="noopener" href="https://cloud.tencent.com/product/cdn?from=10680">CDN</a>加速。在构建过程中，将引用的静态资源路径修改为CDN上对应的路径。可以利用webpack对于output参数和各loader的publicPath参数来修改资源路径</li>
-<li>删除死代码（Tree Shaking）。将代码中永远不会走到的片段删除掉。可以通过在启动webpack时追加参数–optimize-minimize来实现</li>
-<li>提取公共代码。</li>
-</ul>
-<h5 id="5、webpack热更新的原理。"><a href="#5、webpack热更新的原理。" class="headerlink" title="5、webpack热更新的原理。"></a>5、webpack热更新的原理。</h5><p>首先要知道server端和client端都做了处理工作</p>
-<ol>
-<li>第一步，在 webpack 的 watch 模式下，文件系统中某一个文件发生修改，webpack 监听到文件变化，根据配置文件对模块重新编译打包，并将打包后的代码通过简单的 JavaScript 对象保存在内存中。</li>
-<li>第二步是 webpack-dev-server 和 webpack 之间的接口交互，而在这一步，主要是 dev-server 的中间件 webpack-dev-middleware 和 webpack 之间的交互，webpack-dev-middleware 调用 webpack 暴露的 API对代码变化进行监控，并且告诉 webpack，将代码打包到内存中。</li>
-<li>第三步是 webpack-dev-server 对文件变化的一个监控，这一步不同于第一步，并不是监控代码变化重新打包。当我们在配置文件中配置了devServer.watchContentBase 为 true 的时候，Server 会监听这些配置文件夹中静态文件的变化，变化后会通知浏览器端对应用进行 live reload。注意，这儿是浏览器刷新，和 HMR 是两个概念。</li>
-<li>第四步也是 webpack-dev-server 代码的工作，该步骤主要是通过 sockjs（webpack-dev-server 的依赖）在浏览器端和服务端之间建立一个 websocket 长连接，将 webpack 编译打包的各个阶段的状态信息告知浏览器端，同时也包括第三步中 Server 监听静态文件变化的信息。浏览器端根据这些 socket 消息进行不同的操作。当然服务端传递的最主要信息还是新模块的 hash 值，后面的步骤根据这一 hash 值来进行模块热替换。</li>
-<li>webpack-dev-server/client 端并不能够请求更新的代码，也不会执行热更模块操作，而把这些工作又交回给了 webpack，webpack/hot/dev-server 的工作就是根据 webpack-dev-server/client 传给它的信息以及 dev-server 的配置决定是刷新浏览器呢还是进行模块热更新。当然如果仅仅是刷新浏览器，也就没有后面那些步骤了。</li>
-<li>HotModuleReplacement.runtime 是客户端 HMR 的中枢，它接收到上一步传递给他的新模块的 hash 值，它通过 JsonpMainTemplate.runtime 向 server 端发送 Ajax 请求，服务端返回一个 json，该 json 包含了所有要更新的模块的 hash 值，获取到更新列表后，该模块再次通过 jsonp 请求，获取到最新的模块代码。这就是上图中 7、8、9 步骤。</li>
-<li>而第 10 步是决定 HMR 成功与否的关键步骤，在该步骤中，HotModulePlugin 将会对新旧模块进行对比，决定是否更新模块，在决定更新模块后，检查模块之间的依赖关系，更新模块的同时更新模块间的依赖引用。</li>
-<li>最后一步，当 HMR 失败后，回退到 live reload 操作，也就是进行浏览器刷新来获取最新打包代码。</li>
-</ol>
+<h5 id="1、正则表达式修饰符"><a href="#1、正则表达式修饰符" class="headerlink" title="1、正则表达式修饰符"></a>1、正则表达式修饰符</h5><table>
+<thead>
+<tr>
+<th>修饰符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>i</td>
+<td>执行对大小写不敏感的匹配</td>
+</tr>
+<tr>
+<td>g</td>
+<td>执行全局匹配（查找所有匹配而非在找到第一个匹配后停止）</td>
+</tr>
+<tr>
+<td>m</td>
+<td>执行多行匹配</td>
+</tr>
+</tbody></table>
+<h5 id="2、正则表达式模式"><a href="#2、正则表达式模式" class="headerlink" title="2、正则表达式模式"></a>2、正则表达式模式</h5><p>1、方括号用于查找某个范围内的字符</p>
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[abc]</td>
+<td>查找方括号之间的任何字符</td>
+</tr>
+<tr>
+<td>[0-9]</td>
+<td>查找任何从0-9的数字</td>
+</tr>
+<tr>
+<td>(x|y)</td>
+<td>查找任何以 | 分隔的选项</td>
+</tr>
+</tbody></table>
+<p>2、元字符是拥有特殊含义的字符</p>
+<table>
+<thead>
+<tr>
+<th>元字符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\d</td>
+<td>查找数字</td>
+</tr>
+<tr>
+<td>\s</td>
+<td>查看空白字符</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>匹配单词边界</td>
+</tr>
+<tr>
+<td>\uxxxx</td>
+<td>查找以十六进制数xxxx规定的Unicode字符</td>
+</tr>
+</tbody></table>
+<p>3、量词</p>
+<table>
+<thead>
+<tr>
+<th>量词</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>n+</td>
+<td>匹配任何包含至少一个n的字符串</td>
+</tr>
+<tr>
+<td>n*</td>
+<td>匹配任何包含零个或多个n的字符串</td>
+</tr>
+<tr>
+<td>n?</td>
+<td>匹配任何包含零个或一个n的字符串</td>
+</tr>
+</tbody></table>
+<h5 id="3、使用RegExp对象"><a href="#3、使用RegExp对象" class="headerlink" title="3、使用RegExp对象"></a>3、使用RegExp对象</h5><p>test()方法是一个正则表达式方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> patt = <span class="hljs-regexp">/e/</span>;  <span class="hljs-comment">//正则的规则</span><br>patt.test(<span class="hljs-string">&quot;这里是你输入的字符串&quot;</span>)<br><span class="hljs-comment">//合并写也行</span><br>/e/.test(<span class="hljs-string">&quot;这里是你输入的字符串&quot;</span>);<br></code></pre></td></tr></table></figure>
+
+<h5 id="4、表单验证实例"><a href="#4、表单验证实例" class="headerlink" title="4、表单验证实例"></a>4、表单验证实例</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">/*是否带有小数*/</span><br><span class="hljs-function"><span class="hljs-keyword">function</span>    <span class="hljs-title">isDecimal</span>(<span class="hljs-params">strValue </span>)  </span>&#123;  <br>   <span class="hljs-keyword">var</span>  objRegExp= <span class="hljs-regexp">/^\d+\.\d+$/</span>;<br>   <span class="hljs-keyword">return</span>  objRegExp.test(strValue);  <br>&#125;  <br><br><span class="hljs-comment">/*校验是否中文名称组成 */</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ischina</span>(<span class="hljs-params">str</span>) </span>&#123;<br>    <span class="hljs-keyword">var</span> reg=<span class="hljs-regexp">/^[\u4E00-\u9FA5]&#123;2,4&#125;$/</span>;   <span class="hljs-comment">/*定义验证表达式*/</span><br>    <span class="hljs-keyword">return</span> reg.test(str);     <span class="hljs-comment">/*进行验证*/</span><br>&#125;<br><br><span class="hljs-comment">/*校验是否全由8位数字组成 */</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isStudentNo</span>(<span class="hljs-params">str</span>) </span>&#123;<br>    <span class="hljs-keyword">var</span> reg=<span class="hljs-regexp">/^[0-9]&#123;8&#125;$/</span>;   <span class="hljs-comment">/*定义验证表达式*/</span><br>    <span class="hljs-keyword">return</span> reg.test(str);     <span class="hljs-comment">/*进行验证*/</span><br>&#125;<br><br><span class="hljs-comment">/*校验电话码格式 */</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isTelCode</span>(<span class="hljs-params">str</span>) </span>&#123;<br>    <span class="hljs-keyword">var</span> reg= <span class="hljs-regexp">/^((0\d&#123;2,3&#125;-\d&#123;7,8&#125;)|(1[3584]\d&#123;9&#125;))$/</span>;<br>    <span class="hljs-keyword">return</span> reg.test(str);<br>&#125;<br><br><span class="hljs-comment">/*校验邮件地址是否合法 */</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">IsEmail</span>(<span class="hljs-params">str</span>) </span>&#123;<br>    <span class="hljs-keyword">var</span> reg=<span class="hljs-regexp">/^\w+@[a-zA-Z0-9]&#123;2,10&#125;(?:\.[a-z]&#123;2,4&#125;)&#123;1,3&#125;$/</span>;<br>    <span class="hljs-keyword">return</span> reg.test(str);<br>&#125;<br></code></pre></td></tr></table></figure>
+
 
             </div>
             <hr>
@@ -279,7 +339,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/webpack/">webpack</a>
+                      <a class="hover-with-bg" href="/categories/%E9%80%9A%E7%94%A8/">通用</a>
                     
                   </div>
                 
@@ -287,7 +347,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/webpack/">webpack</a>
+                      <a class="hover-with-bg" href="/tags/%E9%80%9A%E7%94%A8/">通用</a>
                     
                   </div>
                 
@@ -300,18 +360,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/02/20/%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8%E5%8C%97%E4%BA%AC%E5%9B%BD%E9%99%85%E4%BC%9A/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">字节跳动北京国际化</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/02/02/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
-                        <span class="hidden-mobile">git常用命令</span>
+                      <a href="/2021/02/20/%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8%E5%8C%97%E4%BA%AC%E5%9B%BD%E9%99%85%E4%BC%9A/">
+                        <span class="hidden-mobile">字节跳动北京国际化</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
