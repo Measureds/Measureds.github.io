@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4.1k 字
+      4.8k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      63
+      71
        分钟
     </span>
   
@@ -284,6 +284,51 @@
 
 <h5 id="15、手撕bind、call、apply"><a href="#15、手撕bind、call、apply" class="headerlink" title="15、手撕bind、call、apply"></a>15、手撕bind、call、apply</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myBind2</span>(<span class="hljs-params">context, ...args1</span>) </span>&#123;<span class="hljs-comment">// Cat</span><br>    <span class="hljs-keyword">var</span> self = <span class="hljs-built_in">this</span>;<br>    <span class="hljs-keyword">var</span> Fn = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">...args2</span>) </span>&#123;<br>        <span class="hljs-keyword">return</span> self.apply(<span class="hljs-built_in">this</span> <span class="hljs-keyword">instanceof</span> context ? <span class="hljs-built_in">this</span> : context, args1.concat(args2))<br>    &#125;<br>    <span class="hljs-keyword">var</span> Fmiddle = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123; &#125;;<br>    Fmiddle.prototype = <span class="hljs-built_in">this</span>.prototype;<br>    Fn.prototype = <span class="hljs-keyword">new</span> Fmiddle();<br>    <span class="hljs-keyword">return</span> Fn;<br>&#125;<br><br><span class="hljs-comment">// 全局添加一个_call方法</span><br><span class="hljs-built_in">Function</span>.prototype._call = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj</span>) </span>&#123;<br>    <span class="hljs-comment">// 参数是否存在，如果存在则转为Object类型，否则直接取window对象为默认对象</span><br>    <span class="hljs-keyword">var</span> _obj = obj ? <span class="hljs-built_in">Object</span>(obj) : <span class="hljs-built_in">window</span><br>    <span class="hljs-comment">// 把调用_call()方法的那个函数保存在目标对象中</span><br>    _obj.fn = <span class="hljs-built_in">this</span><br>    <span class="hljs-comment">// 保存参数的数组</span><br>    <span class="hljs-comment">// var argArr = [...arguments].slice(1)</span><br>    <span class="hljs-keyword">var</span> argArr = <span class="hljs-built_in">Array</span>.from(<span class="hljs-built_in">arguments</span>).slice(<span class="hljs-number">1</span>)<br>    <span class="hljs-comment">// 遍历参数,因为首项是obj，所以要从次项开始遍历才是参数</span><br>    <span class="hljs-comment">/* for (var i = 1; i &lt; arguments.length; i++) &#123;</span><br><span class="hljs-comment">        argArr.push(&#x27;arguments[&#x27;+ i + &#x27;]&#x27;)</span><br><span class="hljs-comment">      &#125; */</span><br>    <span class="hljs-comment">// 执行obj的fn方法，把arg拆分</span><br>    <span class="hljs-comment">// eval(&quot;_obj.fn(&quot; + argArr + &quot;)&quot;)</span><br>    _obj.fn(...argArr)<br>    <span class="hljs-comment">// 执行完之后删除这个方法</span><br>    <span class="hljs-keyword">delete</span> _obj.fn<br>&#125;<br><br><span class="hljs-built_in">Function</span>.prototype._apply = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, argArr</span>) </span>&#123;<br>    <span class="hljs-comment">// 如果obj不存在则默认window对象</span><br>    <span class="hljs-keyword">var</span> _obj = obj ? obj : <span class="hljs-built_in">window</span><br>    <span class="hljs-comment">// 给_obj添加fn方法</span><br>    _obj.fn = <span class="hljs-built_in">this</span><br>    <span class="hljs-comment">// 获取第二个数组参数</span><br>    <span class="hljs-keyword">var</span> arg = []<br>    <span class="hljs-comment">// 当这个参数数组不存在或者为空时，直接执行函数，否则把数组拆分后传递给函数并执行</span><br>    <span class="hljs-keyword">if</span> (!argArr || argArr.length == <span class="hljs-number">0</span>) &#123;<br>        _obj.fn()<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; argArr.length; i++) &#123;<br>            arg.push(<span class="hljs-string">&#x27;argArr[&#x27;</span>+ i + <span class="hljs-string">&#x27;]&#x27;</span>)<br>        &#125;<br>        <span class="hljs-comment">// 执行obj的fn方法，把arg拆分</span><br>        <span class="hljs-built_in">eval</span>(<span class="hljs-string">&quot;_obj.fn(&quot;</span> + arg + <span class="hljs-string">&quot;)&quot;</span>)<br>    &#125;<br>    <span class="hljs-comment">// 移除这个方法</span><br>    <span class="hljs-keyword">delete</span> _obj.fn<br>&#125;<br></code></pre></td></tr></table></figure>
 
+<h5 id="16、Common-js和es6-module"><a href="#16、Common-js和es6-module" class="headerlink" title="16、Common.js和es6 module"></a>16、Common.js和es6 module</h5><p>产生<code>模块化</code>的原因：js很难编写大型项目，由于全局变量的污染和难以管理的依赖关系，这些问题导致了JS无法进行精细的模块划分，因为精细的模块化划分会导致更多的全局污染以及更加复杂的依赖关系；</p>
+<ul>
+<li><p>Common.js模板化</p>
+<p>目前只有node环境才支持CommonJs模板化标准，要使用CommonJs,必须安装node</p>
+<p>node遵循EcmaScript标准，但是由于脱离了浏览器环境，因此：无法使用浏览器的dom对象、window对象、document对象</p>
+<ul>
+<li><p>common.js的标准和使用</p>
+<ul>
+<li>一个js文件即是一个模板</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>如果一个模板需要暴露一些数据或者功能供其他模板使用，需要使用代码<code>module.expots = xxx</code></p>
+<ul>
+<li>如果一个模块需要使用另一个模块导出的内容，需要使用require(‘模块路径’)</li>
+</ul>
+</li>
+<li><p>路径必须以./或者../开头</p>
+<ul>
+<li>如果模块文件后缀名为js,可以省略后缀名</li>
+</ul>
+</li>
+<li><p>require函数返回的内容是模块导出的内容</p>
+<ul>
+<li>模块中所有全局代码产生的变量、函数均不会对全局造成任何污染，仅在模块内使用。</li>
+</ul>
+</li>
+<li><p>模块具有缓存，第一次导入模块时会缓存模块的导出，之后再导入同一个模块，直接使用之前的缓存结果。</p>
+</li>
+<li><p>ES6模板化</p>
+<ul>
+<li>基本导出可以有多个，默认导出只能有一个</li>
+<li>基本导出必须要有名字，默认导出由于有特殊名字，所以可以不用写名字。</li>
+<li>ES6 module采用的依赖预加载模式，所有模块导入代码均会提升到代码顶部</li>
+<li>不能将导入代码放置到判断，循环中</li>
+<li>导入的内容放置到常量中，不可更改</li>
+<li>ES6 module使用了缓存，保证每个模块仅加载一次</li>
+</ul>
+</li>
+</ul>
+<h5 id="17、取消之前的请求"><a href="#17、取消之前的请求" class="headerlink" title="17、取消之前的请求"></a>17、取消之前的请求</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;script&gt;<br><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;axios&#x27;</span><br><span class="hljs-keyword">import</span> qs <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;qs&#x27;</span><br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>  methods: &#123;<br>    <span class="hljs-function"><span class="hljs-title">request</span>(<span class="hljs-params">keyword</span>)</span> &#123;<br>      <span class="hljs-keyword">var</span> CancelToken = axios.CancelToken<br>      <span class="hljs-keyword">var</span> source = CancelToken.source()<br>       <br>      <span class="hljs-comment">// 取消上一次请求</span><br>      <span class="hljs-built_in">this</span>.cancelRequest();<br>      <br>      axios.post(url, qs.stringify(&#123;<span class="hljs-attr">kw</span>:keyword&#125;), &#123;<br>        headers: &#123;<br>          <span class="hljs-string">&#x27;Content-Type&#x27;</span>: <span class="hljs-string">&#x27;application/x-www-form-urlencoded&#x27;</span>,<br>          <span class="hljs-string">&#x27;Accept&#x27;</span>: <span class="hljs-string">&#x27;application/json&#x27;</span><br>        &#125;,<br>        cancelToken: <span class="hljs-keyword">new</span> axios.CancelToken(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">executor</span>(<span class="hljs-params">c</span>) </span>&#123;<br>          that.source = c;<br>        &#125;)<br>      &#125;).then(<span class="hljs-function">(<span class="hljs-params">res</span>) =&gt;</span> &#123;<br>        <span class="hljs-comment">// 在这里处理得到的数据</span><br>        ...<br>      &#125;).catch(<span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> &#123;<br>        <span class="hljs-keyword">if</span> (axios.isCancel(err)) &#123;<br>          <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Rquest canceled&#x27;</span>, err.message); <span class="hljs-comment">//请求如果被取消，这里是返回取消的message</span><br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>          <span class="hljs-comment">//handle error</span><br>          <span class="hljs-built_in">console</span>.log(err);<br>        &#125;<br>      &#125;)<br>    &#125;,<br>    <span class="hljs-function"><span class="hljs-title">cancelRequest</span>(<span class="hljs-params"></span>)</span>&#123;<br>      <span class="hljs-keyword">if</span>(<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">this</span>.source ===<span class="hljs-string">&#x27;function&#x27;</span>)&#123;<br>        <span class="hljs-built_in">this</span>.source(<span class="hljs-string">&#x27;终止请求&#x27;</span>)<br>      &#125;<br>    &#125;,<br>  &#125;<br>&#125;<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+
+
+<p>​      </p>
 
             </div>
             <hr>
