@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>defer和async</title>
+    <link href="/2021/02/25/async_defer/"/>
+    <url>/2021/02/25/async_defer/</url>
+    
+    <content type="html"><![CDATA[<a id="more"></a><h5 id="1-defer"><a href="#1-defer" class="headerlink" title="1. defer"></a>1. defer</h5><p>　　立即下载，延迟执行。</p><p>　　HTML5 规范要求脚本按照他们出现的顺序执行，因此第一个延迟脚本会先于第二个延迟脚本执行，而这两个脚本会优先于<code> DOMContentLoaded</code> 事件触发前执行；</p><p>　　在现实当中，延迟脚本并不一定会按照顺序执行，也不一定在 DOMCotentLoaded 事件出发前执行，一次最好只包含一个延迟脚本；</p><p>　　使用范围： </p><p>　　　　只适用于外部脚本文件；HTML5 已经规定，因此支持HTML5的实现会忽略给嵌入脚本设置的defer属性</p><p>　　PS： 在XHTML文档中，要把defer属性设置为 defer=”defer”</p><h5 id="2-async"><a href="#2-async" class="headerlink" title="2. async"></a>2. async</h5><p>　　立即下载，异步执行，异步加载页面其他内容<br>　　乱序执行，不能保证执行顺序，所以要确保脚本文件不相互依赖；建议异步脚本不要在加载期间修改 DOM</p><p>　　异步脚本一定会在<code>load</code>事件之前执行，但可能会在 <code>DOMContentLoaded</code> 事件触发之前或者之后执行。</p><p>　　使用范围： </p><p>　　　　只适用于外部脚本文件；HTML5 已经规定，因此支持HTML5的实现会忽略给嵌入脚本设置的defer属性</p><p>　　PS： 在XHTML文档中，要把defer属性设置为 defer=”defer”</p><h5 id="dom文件加载的步骤为："><a href="#dom文件加载的步骤为：" class="headerlink" title="dom文件加载的步骤为："></a>dom文件加载的步骤为：</h5><ul><li>1,解析HTML结构。</li><li>2,DOM树构建完成。//DOMContentLoaded</li><li>3,加载外部脚本和样式表文件。</li><li>4,解析并执行脚本代码。</li><li>5,加载图片等外部文件。</li><li>6,页面加载完毕。//load</li></ul>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>学习笔记</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>正则表达式</title>
     <link href="/2021/02/22/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/"/>
     <url>/2021/02/22/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/</url>

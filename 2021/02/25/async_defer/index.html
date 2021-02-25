@@ -17,9 +17,25 @@
   <meta name="description" content="">
   <meta name="author" content="Measureds">
   <meta name="keywords" content="">
-  <title>归档 - 云深不知处</title>
+  <title>defer和async - 云深不知处</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
 
 
 
@@ -47,7 +63,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -146,9 +162,46 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="归档">
+            <span class="h2" id="subtitle" title="defer和async">
               
             </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-02-25 16:43" pubdate>
+        2021年2月25日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      384 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      4
+       分钟
+    </span>
+  
+
+  
+  
+</div>
 
             
           </div>
@@ -161,106 +214,98 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 28 篇文章</p>
-  <hr>
-  
-  
-    
       
-      <p class="h5">2021</p>
-    
-    <a href="/2021/01/19/leecode%E5%88%B7%E9%A2%98%E6%9C%AC/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">leecode打卡本</span>
-      <time style="float: right;">01-19</time>
-    </a>
-  
-    
-    <a href="/2021/01/19/%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">map、reduce、filter等高阶函数</span>
-      <time style="float: right;">01-19</time>
-    </a>
-  
-    
-    <a href="/2021/01/16/JS%E7%BB%A7%E6%89%BF%E8%AF%A6%E8%A7%A3/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">JS继承学习笔记</span>
-      <time style="float: right;">01-16</time>
-    </a>
-  
-    
-    <a href="/2021/01/14/%E5%B9%BF%E5%B7%9E4399%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">广州4399一面面试</span>
-      <time style="float: right;">01-14</time>
-    </a>
-  
-    
-    <a href="/2021/01/14/%E5%BF%AB%E6%89%8B%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">快手一面面试</span>
-      <time style="float: right;">01-14</time>
-    </a>
-  
-    
-    <a href="/2021/01/06/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%E9%A2%98%E7%9B%AE%E8%AE%BE%E6%83%B3/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Salient Object Detection ： A Survey</span>
-      <time style="float: right;">01-06</time>
-    </a>
-  
-    
-    <a href="/2021/01/06/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">事件循环机制</span>
-      <time style="float: right;">01-06</time>
-    </a>
-  
-    
-    <a href="/2021/01/05/%E6%8B%BC%E5%A4%9A%E5%A4%9A%E7%AC%94%E8%AF%95/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">拼多多笔试、面试</span>
-      <time style="float: right;">01-05</time>
-    </a>
-  
-    
-    <a href="/2021/01/03/%E5%AD%97%E8%8A%82%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87day3/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">为字节准备</span>
-      <time style="float: right;">01-03</time>
-    </a>
-  
-    
-    <a href="/2021/01/03/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%AD%A6%E4%B9%A0/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">动态规划</span>
-      <time style="float: right;">01-03</time>
-    </a>
-  
-</div>
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">defer和async</h1>
+            
+            <div class="markdown-body">
+              <a id="more"></a>
 
-  <nav aria-label="navigation">
-    <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/archives/2021/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/archives/2021/">1</a><span class="page-number current">2</span>
-    </span>
-  </nav>
-  
-  <script>
-    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
-      ele.href += '#board';
-    }
-  </script>
+<h5 id="1-defer"><a href="#1-defer" class="headerlink" title="1. defer"></a>1. defer</h5><p>　　立即下载，延迟执行。</p>
+<p>　　HTML5 规范要求脚本按照他们出现的顺序执行，因此第一个延迟脚本会先于第二个延迟脚本执行，而这两个脚本会优先于<code> DOMContentLoaded</code> 事件触发前执行；</p>
+<p>　　在现实当中，延迟脚本并不一定会按照顺序执行，也不一定在 DOMCotentLoaded 事件出发前执行，一次最好只包含一个延迟脚本；</p>
+<p>　　使用范围： </p>
+<p>　　　　只适用于外部脚本文件；HTML5 已经规定，因此支持HTML5的实现会忽略给嵌入脚本设置的defer属性</p>
+<p>　　PS： 在XHTML文档中，要把defer属性设置为 defer=”defer”</p>
+<h5 id="2-async"><a href="#2-async" class="headerlink" title="2. async"></a>2. async</h5><p>　　立即下载，异步执行，异步加载页面其他内容<br>　　乱序执行，不能保证执行顺序，所以要确保脚本文件不相互依赖；建议异步脚本不要在加载期间修改 DOM</p>
+<p>　　异步脚本一定会在<code>load</code>事件之前执行，但可能会在 <code>DOMContentLoaded</code> 事件触发之前或者之后执行。</p>
+<p>　　使用范围： </p>
+<p>　　　　只适用于外部脚本文件；HTML5 已经规定，因此支持HTML5的实现会忽略给嵌入脚本设置的defer属性</p>
+<p>　　PS： 在XHTML文档中，要把defer属性设置为 defer=”defer”</p>
+<h5 id="dom文件加载的步骤为："><a href="#dom文件加载的步骤为：" class="headerlink" title="dom文件加载的步骤为："></a>dom文件加载的步骤为：</h5><ul>
+<li>1,解析HTML结构。</li>
+<li>2,DOM树构建完成。//DOMContentLoaded</li>
+<li>3,加载外部脚本和样式表文件。</li>
+<li>4,解析并执行脚本代码。</li>
+<li>5,加载图片等外部文件。</li>
+<li>6,页面加载完毕。//load</li>
+</ul>
 
-
-
-
-              </div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/22/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/">
+                        <span class="hidden-mobile">正则表达式</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
 
     
@@ -343,9 +388,15 @@
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
 
 
 
