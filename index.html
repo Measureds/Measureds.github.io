@@ -333,11 +333,13 @@
           
             
           
-          1、有哪些常见的Loader？他们是解决什么问题的？
-file-loader：把文件输出到一个文件夹中，在代码中通过相对 URL 去引用输出的文件
-url-loader：和 file-loader 类似，但是能在文件很小的情况下以 base64 的方式把文件内容注入到代码中去
-source-map-loader：加载额外的 Source Map 文件，以方便断点调试
-image-loader：加载
+          Webpack的性能优化有哪些
+
+实现按需加载，通过用户的一些操作作为触发时机，如react-router按需加载的触发条件是路由发生变化
+
+公共代码提取(webpack.optimization):相同的资源被重复的加载,浪费用户的流量和服务器的成本; 每个页面需要加载的资源太大，导致页面首屏加载缓慢，影响用户体验。
+
+压缩文件js、css：parallel-uglify-plugin使用多线程
         </a>
       </p>
 
